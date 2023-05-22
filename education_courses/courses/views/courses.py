@@ -6,9 +6,9 @@ def courses_all(request):
     template = 'courses/courses.html'
     # Получение отправленных данных из запроса
     if request.method == 'POST':
-        f_junior = 'f_junior' in request.POST.getlist('special')
-        f_middle = 'f_middle' in request.POST.getlist('special')
-        f_middle_plus = 'f_middle_plus' in request.POST.getlist('special')
+        f_junior = list(request.POST.get('f_junior'))
+        f_middle = list(request.POST.get('f_middle'))
+        f_middle_plus = list(request.POST.get('f_middle_plus'))
     else:
         f_junior = False
         f_middle = False
