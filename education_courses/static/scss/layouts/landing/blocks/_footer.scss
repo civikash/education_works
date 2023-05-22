@@ -1,0 +1,43 @@
+.footer {
+    height: 514px;
+    margin-top: 45px;
+
+    .container {
+        display: flex;
+    }
+}
+
+.footer__left {
+    width: 400px;
+}
+
+.footer__right {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+}
+
+.footer__column {
+    display: flex;
+    flex-direction: column;
+
+    h1 {
+        font-weight: 700;
+        font-size: 17px;
+    }
+
+    ul {
+        display: flex;
+        gap: 25px;
+        flex-direction: column;
+        justify-content: space-between;
+
+        li:first-child {
+            margin-top: 34px;
+        }
+
+        li a {
+            color: $gray;
+        }
+    }
+}

@@ -1,0 +1,101 @@
+.signup__body {
+    width: 100%;
+    height: 100vh;
+    background-color: $dark;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    form {
+        background-color: $white;
+        display: flex;
+        width: 580px;
+        padding: 35px;
+        height: 100%;
+        flex-direction: column;
+
+        img {
+            max-width: 100%;
+            width: 10%;
+            margin-bottom: 15px;
+            height: auto;
+        }
+
+        h1 {
+            font-size: 23px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        span {
+            margin-bottom: 15px;
+        }
+
+        a {
+            margin-top: 15px;
+            margin-bottom: 35px;
+            margin-left: auto;
+        }
+
+        .inputs__list {
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+
+
+            p {
+                font-size: 18px;
+            }
+
+            input {
+                width: 100%;
+                padding: 15px 0 15px 45px;
+                height: 50px;
+                background-color: $gray-bg;
+                box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.08);
+                border-radius: 8px;
+                background-size: 21px;
+                background-repeat: no-repeat;
+                background-position: 13px;
+
+                &.user {
+                    background-image: url('../img/svg/mdi_user.svg');
+                }
+                &.email {
+                    background-image: url('../img/svg/mdi_at.svg');
+                }
+                &.password {
+                    background-image: url('../img/svg/mdi_lock-outline.svg');
+                }
+            }
+
+            button {
+                padding: 7px;
+                width: 180px;
+                background-color: $orange;
+                color: $white;
+                display: flex !important;
+                justify-content: center;
+                align-items: center;
+                height: 49px;
+                border-radius: 8px;
+                font-size: 19px;
+                box-shadow: 0px 12.1167px 24.2334px rgba(253, 116, 1, 0.3);
+                width: 100%;
+            }
+        }
+    }
+}
+
+.line-width {
+    width: 100%;
+    background-color: $dark;
+    height: 1px;
+    margin-bottom: 15px;
+}

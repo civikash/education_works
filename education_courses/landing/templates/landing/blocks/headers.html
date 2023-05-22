@@ -1,0 +1,59 @@
+{% load static %}
+<header class="header__landing">
+    <div class="header__landing__top">
+      <div class="container">
+        <div class="header__top-row">
+          <a>
+            <h3>Education Courses</h3>
+        </a>
+        <div class="header__nav">
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li><a href="#!">Главная</a></li>
+                    <li><a href="#!">Контакты</a></li>
+                    <li><a href="#!">Отзывы</a></li>
+                    <li><a href="#!">Подписаться</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="header__nav">
+            <nav class="nav">
+                <ul class="nav__list">
+                    {% if not request.user %}
+                    <li><a class="button orange" href="{% url 'account:login' %}">Войти</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="header__body">
+      <div class="container">
+        <div class="header_left">
+            <div class="figure__decoration"></div>
+        </div>
+        <div class="header_right">
+            <h1>Учитесь каждый день 
+                любым новым навыкам онлайн с лучшими преподавателями.</h1>
+                <div class="header__search">
+                    <div class="header__search-row">
+                        <svg width="21" height="21" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g id="sea">
+                            <path id="Path" fill-rule="evenodd" clip-rule="evenodd" d="M39.0605 38.9392L33.9695 33.8496C39.0151 27.7336 38.6302 18.7099 32.9602 13.0398C26.907 6.98672 17.093 6.98672 11.0398 13.0398C4.98672 19.093 4.98672 28.907 11.0398 34.9602C16.7093 40.6296 25.732 41.0151 31.848 35.9708L36.9395 41.0608C38.3539 42.4748 40.4749 40.3532 39.0605 38.9392ZM13.1612 15.1612C18.0427 10.2796 25.9573 10.2796 30.8388 15.1612C35.7204 20.0427 35.7204 27.9573 30.8388 32.8388C25.9573 37.7204 18.0427 37.7204 13.1612 32.8388C8.27961 27.9573 8.27961 20.0427 13.1612 15.1612Z" fill="#778195"/>
+                            </g>
+                            </svg>
+                            
+                        <span>Вставьте название</span>
+                        <span>|</span>
+                        <span>Категории</span>
+                        <button>Искать</button>
+                    </div>
+                </div>
+            </div>
+      </div>
+    </div>
+  
+  </header>
+

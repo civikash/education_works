@@ -1,0 +1,66 @@
+.breefs__body {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 0px 74px 0px;
+    min-height: 480px;
+
+    .container {
+        display: flex;
+    }
+}
+
+.breefs__left {
+    width: 400px;
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+
+    h1 {
+        font-weight: 500;
+        font-size: 44px;
+    }
+}
+
+.breefs__right {
+    margin-top: 55px;
+    flex: 1;
+}
+
+.breefs__right-row {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.breefs__element {
+    background-color: $orange-bg;
+    display: flex;
+    flex-direction: column;
+    width: 280px;
+    padding: 30px;
+
+    h1 {
+        font-weight: 600;
+        font-size: 19px;
+        margin-bottom: 10px;
+    }
+
+    p {
+        color: $dark;
+        font-size: 17px;
+    }
+
+    .circle__decoration {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    
+        border-radius: 50%;
+        background-color: $orange-element-bg;
+
+        height: 60px;
+        width: 60px;
+
+        margin-bottom: 13px;
+    }
+}

@@ -1,0 +1,129 @@
+.header {
+    &__landing {
+      display: flex;
+      flex-direction: column;
+      padding: 30px 0px 74px 0px;
+      min-height: 791px;
+      background-color: $dark;
+    }
+  }
+  
+  .header__top-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    h3 {
+        color: $white;
+        font-size: 19px;
+        font-weight: 600;
+    }
+  }
+  
+  .header__body {
+    font-family: $font-main;
+    margin-top: 30px;
+
+    h1 {
+      font-size: 32px;
+      font-weight: 300;
+    }
+  
+    h3 {
+      font-size: 19px;
+    }
+  
+    .container {
+      display: flex;
+      justify-content: center;
+
+      .header_left {
+        width: 650px;
+        position: relative;
+        align-items: center;
+        margin-right: 20px;
+        height: 100%;
+
+        .figure__decoration {
+            background-color: $orange;
+            width: 455px;
+            position: absolute;
+            top: 196px;
+            left: 0;
+            height: 486px;
+            border-radius: 20px 20px 0px 0px;
+        }
+  
+        h1, h3 {
+          color: $dark;
+          margin-bottom: 11px;
+        }
+  
+        h3:last-child {
+          color: $gray;
+        }
+      }
+  
+      .header_right {
+        margin-top: 55px;
+        width: 670px;
+
+        h1 {
+            font-size: 64px;
+            color: $white;
+            font-weight: 500;
+        }
+
+        .header__search {
+            margin-top: 25px;
+            min-width: 100%;
+            background: $white;
+            border-radius: 8px;
+        }
+
+        .header__search-row {
+            display: flex;
+            padding: 20px;
+            align-items: center;
+            justify-content: space-between;
+
+            span {
+                color: $gray;
+            }
+
+            button {
+                padding: 7px;
+                background-color: $orange;
+                color: $white;
+                width: 150px;
+                height: 55px;
+                border-radius: 4px;
+            }
+        }
+      }
+    }
+  }
+
+  .nav {
+    color: $white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-size: 18px;
+  }
+  
+  .nav__list {
+    display: flex;
+    column-gap: 40px;
+  
+    .auth__space {
+      display: flex;
+      gap: 8px;
+    }
+  
+    .auth_data {
+      flex-direction: column;
+      display: flex;
+    }
+  }
