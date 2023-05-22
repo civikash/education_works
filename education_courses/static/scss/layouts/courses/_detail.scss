@@ -1,0 +1,109 @@
+.course__detail__body {
+    display: flex;
+    width: 990px;
+    margin: 85px;
+    margin-top: 78px;
+    h1 {
+        font-size: 28px;
+        font-weight: 500;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &-title {
+        display: flex;
+        gap: 35px;
+
+        p {
+            width: 700px;
+            margin-top: 15px;
+        }
+    }
+
+    &-row {
+        display: flex;
+        margin-top: 76px;
+        gap: 35px;
+
+        .element__more__info {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            
+            svg {
+                height: 35px;
+                width: 35px;
+            }
+
+            span {
+                width: 150px;
+            }
+        }
+    }
+
+    &-right {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+        width: 450px;
+
+        .element__course {
+            padding: 9px;
+            height: fit-content;
+            font-size: 12px;
+            background-color: $dark;
+            color: $white;
+            border-radius: 15px;
+        }
+    }
+}
+
+.course__main {
+    display: flex;
+    margin-top: 25px;
+    flex-direction: column;
+
+    h1 {
+        font-size: 34px;
+        font-weight: 500;
+        margin-bottom: 35px;
+    }
+
+    &-path {
+        display: flex;
+        gap: 15px;
+
+    }
+
+}
+
+.corse__main-skill {
+    display: flex;
+    gap: 9px;
+    flex-direction: column;
+
+    h2 {
+        font-size: 23px;
+        font-weight: 500;
+    }
+}
+
+.cost {
+    display: flex;
+    flex-direction: column;
+    width: 550px;
+    gap: 15px;
+    padding: 25px;
+    height: fit-content;
+    background-color: $orange-bg;
+    border-radius: 9px;
+
+    .button {
+        font-size: 15px;
+        height: 34px;
+        width: 155px;
+    }
+}

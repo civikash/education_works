@@ -920,6 +920,12 @@ p {
   width: 350px;
   padding: 25px;
 }
+.courses__body__page-left .filter__box button {
+  font-size: 13px;
+  height: 33px;
+  margin-top: 15px;
+  width: 75px;
+}
 .courses__body__page-left .filter__box h1 {
   font-size: 16px;
   margin-top: 0;
@@ -963,11 +969,11 @@ p {
   padding: 25px;
   gap: 15px;
   width: 370px;
-  height: -moz-fit-content;
-  height: fit-content;
+  height: auto;
   background-color: #FFFFFF;
   border-radius: 13px;
   flex-direction: column;
+  justify-content: space-between;
 }
 .courses__body__page-right .course__block h1 {
   font-size: 19px;
@@ -990,4 +996,101 @@ p {
   padding: 7px;
   border: 1px solid #A4A2A2;
   border-radius: 13px;
+}
+
+.course__detail__body {
+  display: flex;
+  width: 990px;
+  margin: 85px;
+  margin-top: 78px;
+}
+.course__detail__body h1 {
+  font-size: 28px;
+  font-weight: 500;
+}
+.course__detail__body .container {
+  display: flex;
+  flex-direction: column;
+}
+.course__detail__body-title {
+  display: flex;
+  gap: 35px;
+}
+.course__detail__body-title p {
+  width: 700px;
+  margin-top: 15px;
+}
+.course__detail__body-row {
+  display: flex;
+  margin-top: 76px;
+  gap: 35px;
+}
+.course__detail__body-row .element__more__info {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+.course__detail__body-row .element__more__info svg {
+  height: 35px;
+  width: 35px;
+}
+.course__detail__body-row .element__more__info span {
+  width: 150px;
+}
+.course__detail__body-right {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  width: 450px;
+}
+.course__detail__body-right .element__course {
+  padding: 9px;
+  height: -moz-fit-content;
+  height: fit-content;
+  font-size: 12px;
+  background-color: #1D212F;
+  color: #FFFFFF;
+  border-radius: 15px;
+}
+
+.course__main {
+  display: flex;
+  margin-top: 25px;
+  flex-direction: column;
+}
+.course__main h1 {
+  font-size: 34px;
+  font-weight: 500;
+  margin-bottom: 35px;
+}
+.course__main-path {
+  display: flex;
+  gap: 15px;
+}
+
+.corse__main-skill {
+  display: flex;
+  gap: 9px;
+  flex-direction: column;
+}
+.corse__main-skill h2 {
+  font-size: 23px;
+  font-weight: 500;
+}
+
+.cost {
+  display: flex;
+  flex-direction: column;
+  width: 550px;
+  gap: 15px;
+  padding: 25px;
+  height: -moz-fit-content;
+  height: fit-content;
+  background-color: #fff8f5;
+  border-radius: 9px;
+}
+.cost .button {
+  font-size: 15px;
+  height: 34px;
+  width: 155px;
 }/*# sourceMappingURL=main.css.map */

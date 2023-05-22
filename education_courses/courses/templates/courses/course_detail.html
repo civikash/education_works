@@ -1,0 +1,111 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+    <title>Курс</title>
+</head>
+<body>
+    <div class="course__detail__body">
+        <div class="container">
+        <div class="course__detail__body-title">
+            <h1>{{ course.title }}</h1>
+            <div class="course__detail__body-right">
+                <div class="element__course">
+                    <span>Программа: {{ course.directions }}</span>
+                </div>
+                <div class="element__course">
+                    <span>Программа: {{ course.special }}</span>
+                </div>
+                <div class="element__course">
+                    <span>Гарантия трудоустройства</span>
+                </div>
+                <div class="element__course">
+                    <span>Первый платеж через 1 месяц</span>
+                </div>
+            </div>
+        </div>
+        <div class="course__detail__body-title">
+            <p>{{ course.description }}</p>
+        </div>
+        <div class="course__detail__body-row">
+            <div class="element__more__info">
+                <svg width="115" height="120" viewBox="0 0 115 120" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <rect width="115" height="120" fill="url(#pattern0)"/>
+                    <defs>
+                    <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+                    <use xlink:href="#image0_68_457" transform="matrix(0.0111111 0 0 0.0106481 0 0.0208333)"/>
+                    </pattern>
+                    <image id="image0_68_457" width="90" height="90" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEp0lEQVR4nO2dXYhVVRTHf1NWkxWR9VCOSUk9RJoZUr2UVtqnPfRQ9BBRPTQppAX1lqFSUFEPIhRU1oN9EBH4UBBB0JCZSeVIL1L4oNOHfcwUapOV044Na+Aw3rlz55619t73un6wYJi5Z5//+s9hz/5Y+ww4juM4juM4juM4x3AScCGwBLgXWAtsBLYAHwCfA3uAvcCIxGEgSByufH+vfHa7XLtF2lorbS+Re8V7diWzgGuAfuBZ4G1gG/A9MFYxLVWMyb2jhrdEU79ojFqL51TgauAhYBPwMXAgg5GhZhwQ7Zskl6skt6z0Ag8DXwD/FmBSMIqY205gjeSclD5gdwEmhMSxW3JPwinAYAFJh0wxKB6Ys6aAZEPmWJ3C6J0FJBoyx44URv9ZQKIhc8QxvDm5kwyFhBuNG03up9CfaPIb510H+U31Pho32uxJ+lbCn2hDE94HeiTi1/5EG5lwW2XwusKNtjH5d+DkitFxt2TY+2h9o19rMBV73Y3WN/rmBkbf4kbrmjwyoduodh+/ZTK7K9c6Xm6i5xU3Ws/oZU2MXu5G65j8CzCjidEnAj9711Hf6Bdb6M5ecqPrG720BaOv60aj69Rw/CeFKRcB8ypxVoOY2Ya2mZO0Vb1XvPdK0dJuHtEDc6r1b9ONrymHOiUTh1IIrDPtHQbmkJ85MjZvN49fU4j8TmEUcRP5iP35jzVziJWr5myrKTJI/7gxcRltHAauA44q6B9IIfhdBaFB4hNgdgLNfXIvLd3vJNDMM4qCg/R3txrqvQH4SVnz0yTgAWXRwagrmSFdhUXBezxFYM6VBsKDROz/5ypojG18ZqhzMQmIJatHDJMYkj3BdumRNqz0/TXJkq0JOwwT2aqgb6uhvnggKRkbDBO5T0Hf/Yb6kvwhHGexURJHgXMU9J1teK7mWhLSI8fItJMYUNQ4YKBvOMdZRYs14EcU9T1qoC9umyXnRoNE5rUwNl4v0WzXBWkr5ZaaafexRzGJwSnudwHwaeXz8XzjxVNco3lEL9b7nUAmVismsq7Jfe6USqWJ1xwEHmxy3XpFfavIyBnAH0qJLGrQ/pnAmy1c+56MNCZyhZK2+Es+ncy8oJDI/gazweunOcMbkmuq9EjbdfU9TwH01dzeCtKXjhsdp7fPtbkYNCbXjk+RY5vf1NR2KNFSbks8qfDUbJZVsV0Kbe2StjYrtPUEBRFftbBPIalQWAy1uRtvyj0FGBOU424KJPaHHxVgTlCKD2su15oyO2MZbVDeXjuPwrmjAKNCzbiLDiHnkYdgcISjWHrldWqhw+LLEkcZU3Gu0qwsJIofUr4vSZtFCrPGkCDi7G8hHc4yYLQAMyeL0QZrJB3LctmmD4XF3xNO43YFK4zrQaYbR0RTV7JUcf26ThyUrbiu5tLMo5FYG305xwlzga8yjZPP5zijF3g1oclvdOJkRJOVxsO/UTkJ5gCXyIktbZPjNtZl7vCx5cBPAf8ojY83pCyv7UQWSGlsuybHAvT5uZPoJG6Xf5LQqsH7ZUO22F2R0ruTx2XHo9m5xcdSvTy72zlNRifbpWpoRM679MvPHMdxHMdxHMdxHNrkf3SK7q5enpdxAAAAAElFTkSuQmCC"/>
+                    </defs>
+                    </svg>
+                    <span>Трудоустройство после обучения</span>
+            </div>
+            <div class="element__more__info">
+                <svg width="115" height="120" viewBox="0 0 115 120" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <rect width="115" height="120" fill="url(#pattern0)"/>
+                    <defs>
+                    <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+                    <use xlink:href="#image0_68_456" transform="matrix(0.0111111 0 0 0.0106481 0 0.0208333)"/>
+                    </pattern>
+                    <image id="image0_68_456" width="90" height="90" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAACXBIWXMAAAsTAAALEwEAmpwYAAAE4ElEQVR4nO2d24vVVRTHPx6ni71EmGNkQfSakKmYEtSLD93oITKHHsoGNG3MnqSnKBBm1Lf+gIJ8rCbNLi8ilHRPnOw5oRE0zZkJyi464+zYsQYOh87027+z9u139gcWDIffOXuv71lnX9feA4VCoVAoFAqFQqFQqMxSYC0wDBwADgM/AGeAGeCK2Iy8dlqe2S/vuQ9oVS+uv7gN2A0cEQFNjzYj4o8AK+lzrgeGgI+BOQVxu9ks8BHwtJTZN9wA7ADOehS3m10AXgFuouFt7whwMYLA/yX4ria25WuBrxMQuNNOARtpAAMycriWgKjdzPYPo1LXLLkD+DwBIU1F+wa4i8x4AJhKQDzjaJdyakoeB/5IQDRT02zdHyVxnpFxq8ncrsoYP0kea4jIpk3s5CL7fuByAuIYZftT+pskuDPTjs9UtF+AVbFFHshsCGdq2lfAdTGFPpCACCaQ2UlNFNZ7XnUziZmd3W4ILXJLZlKmz+w7WRwLxkgCTptI9kIokW8EzifgsIlkPwPLQgi9J7Kj5xL4ou0v2it2iDMZ2Kk5GULanZF1wBKpy92yU/Mh8HfgOp31vS02FHAH5BCwBbi5Qr3s1tRm4A3gp0B1tHXzxieBo7YuIaL9KJ5YqbxodMExauviK9pnJU1Cnd09VuwKcBzYC6wmHqulDselTr34ZDd41TmScNTGivb3UGapYwaRbXN3KrS1MdbUf3Xwc1o7ZWGd4zf9KvnyvKOvNtdPjWHHwgfJl1sdfd0Wczk058TCFY6+jsXsCF8jX/Y4+vq+ZuGnHQu3neGLmXWGS6SJdB3yTWhWou5AP6fh3WRNH20yvBrTNSvRGeUngdeVptm9TM9fBo4pTc9tdpMavc6gTMRo14jaxcx+WUkLbTxGu3bUBhNao+kwHqPdd9QGazpCrfEah2gPGbXBOkPX4V0/2UTslbt+sXFNofd7qOBDMn39Hpj3KMS8lDEmZSadweS6qFTF2hmUju+Q0oHOy7KNtUOSMNvR9uM5lE9V+RS6M3HyQYnAiYrRPi/Pjsl7Fzv4o+3HGhRpKUWaqSB0J7fLL+qdjnyO8/LasDxTFU0fpnycVTwcSWhtNH14N4d8u1ho+mC369QZVE43iIVW/Wd9bnDYmwiK0PyrwQd4ZGsRmoVAe8p3kqPWukcsskhytLykVNkZ4AvgIPAEsNxDXZfLZx+UsrSGqHabzjvLJBnbeDgjckK+SLsTXZcV8hknPN2qcE6S8YOwy4MDps3+At6WA0lVWS9TeN9LptsJSCvgRSfHZAmgG/fIDNHnwtSCfRvj1pqQx9+uAW8Ct7SVb/9+K+ClK3Pa6V8ujAZy0ojZvuFJMR/9xGK2j4gMSKdjGm6fhj5f2O1Kn0sJiGE82UXH1UGv2KO7vycgivFwG80mEmNzgPwPE/hilIdJlCGpYBNE3kri2Mj+LQGxTA/7jY+QCRvl5haTYce3gcxYldnQ77OURhd1xtmjiV+gMieTkejjZA3WAF8mIGqnncyxqfg/WnKpSOwrIBaWOrc38VrjduzOxLPAjxEEnpQM1CAXm6Qk+BZJ3Zr1PCY+Knt8Ua9US4FB2UwYV7qscErOae/scbem0bSk89wmuXTjcnP5GTl5sPDvQabltVPyzKi8596mt72FQqFQKBQKhUKhgCb/APyHeLaOVgp3AAAAAElFTkSuQmCC"/>
+                    </defs>
+                </svg>                    
+                <span>Диплом о 
+                    профессиональной 
+                    переподготовке</span>
+            </div>
+            <div class="element__more__info">
+                <svg width="115" height="120" viewBox="0 0 115 120" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <rect width="115" height="120" fill="url(#pattern0)"/>
+                    <defs>
+                    <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+                    <use xlink:href="#image0_68_459" transform="matrix(0.0111111 0 0 0.0106481 0 0.0208333)"/>
+                    </pattern>
+                    <image id="image0_68_459" width="90" height="90" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAACXBIWXMAAAsTAAALEwEAmpwYAAACI0lEQVR4nO3cMU4bURSF4V8kii2R9MFxHbEUso5IqYLdMayDrCRNlpAwFckWUDYQmYbqRZamQIgHZmDu3MOcT7qdEc8/o7G5MoCZmZmZmZmZmd02B9ZAC1wBJdlcAefACpip/viWwJ8EMcuO87s7s9yVrBS53IgtdWWvE0QrPecYIW2CYKXn/ELIJkGw0nO2Z5fR5wleAt+AI+AQ2B/7SSh4TOC/wBfg9diHVrRr5O/Au7EPq2yXyGfA3tgHVfdQ5B/Aq7EP+RI8dE/27SIg9Od7vm7u3cjzhL6855axFPu1PcVupHa47fvku8zFIqfZjdQO9qny+HWCaJK7kdqhPlYe3yYIJrkbqR3qbeXxmwTBJHcjtUM99vFFZEbj0EEcOohDB3HoIA4tHPoaOAEWAefffo+m+56Te9fREK+ZYugD4r2fYugF8T5MMXRDvNMphr7uYvvFcODQJfGMxqGDOHQQhw7i0EEcWvzt3Ynf3g0fuiGedx1BvOsI4l1HEO86BjbpxX9JPKNx6CAOHcShgzh0EIcOUvsYbk3xrqOfdoDQDfHS7zpWL+TjBovsoWfdH9I4dIDlHbHVbh2n2a/om1f2cfcHNZtneDFsvPh/miI+Mor4yCjiI6OIj4wiPjKK+MjYJIjVd/4hpE0QbBL/kHCVIFjf+YqQWWU3kn0ugDeIWYrFvug+YCNpdms3UpLN9kw/u9uF3JVsZmZmZmZmZsbA/gMRvDwyyQuM1QAAAABJRU5ErkJggg=="/>
+                    </defs>
+                    </svg>
+                    <span>Государственная 
+                        образовательная 
+                        лицензия</span>
+            </div>
+        </div>
+        <div class="course__main">
+            <h1>Программа обучения</h1>
+            <div class="course__main-path">
+                <svg width="40" height="400" viewBox="0 0 40 1260" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M35.1409 0.546875H18.6767H3.8509C1.31388 0.546875 0.0453721 3.63937 1.84243 5.45224L15.5318 19.2618C17.7253 21.4746 21.293 21.4746 23.4865 19.2618L28.6926 14.0099L37.1758 5.45224C38.9464 3.63937 37.6779 0.546875 35.1409 0.546875Z" fill="#FD7401"/>
+                    <path d="M36.1751 106.936H18.7299H3.02076C0.332584 106.936 -1.01151 110.028 0.892621 111.841L15.3977 125.651C17.7218 127.863 21.5021 127.863 23.8262 125.651L29.3426 120.399L38.3312 111.841C40.2073 110.028 38.8633 106.936 36.1751 106.936Z" fill="#FD7401"/>
+                    <path d="M36.1751 56.2412H18.7299H3.02076C0.332584 56.2412 -1.01151 59.3337 0.892621 61.1466L15.3977 74.9562C17.7218 77.1689 21.5021 77.1689 23.8262 74.9562L29.3426 69.7043L38.3312 61.1466C40.2073 59.3337 38.8633 56.2412 36.1751 56.2412Z" fill="#FD7401"/>
+                    <line x1="19.5" y1="17.9961" x2="21.4181" y2="1260" stroke="#FD7401" stroke-width="5"/>
+                    </svg>
+                    <div class="corse__main-skill">
+                <h2>{{ course.title }}</h2>   
+                <span>- Введение в программирование</span>
+                <span>- Введение в контроль версий</span>
+                <span>- Знакомство с языками программирования + Практикум</span>
+                <span>- Основы JavaScript</span>
+                <span>- WEB 3.0</span>
+                <span>- Продолжение JavaScript</span>
+                <span>- JavaScript про ECMAScript</span>
+                <span>- Основы Node.js и инструменты сборки кода</span>
+                <span>- Soliditi</span>
+                <span>- Контейнеризация</span>
+                <span>- Базы данных и SQL</span>
+                <span>- Основы информационной безопасности</span>
+                <span>- Компьютерные сети</span>
+            </div>             
+            </div>
+        </div>
+    </div>
+    <div class="cost">
+        <h1>{{ course.cost }} ₽/мес</h1>
+        <span>Рассрочка до 36 месяцев</span>
+        <button class="button orange">Оставить заявку</button>
+    </div>
+    </div>
+</body>
+</html>

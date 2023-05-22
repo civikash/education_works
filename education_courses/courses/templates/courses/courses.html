@@ -75,78 +75,69 @@
         <div class="courses__body__page-left">
             <div class="filter__box">
                 <h1>Поиск по программам</h1>
-                {% csrf_token %}
                 <form method="POST">
-                    <input class="search" type="text" placeholder="Поиск">
-                </form>
+                    {% csrf_token %}
+                    <input class="search" name="search" type="text" placeholder="Поиск">
+                    <button class="button orange" type="submit">Поиск</button>
             </div>
             <div class="filter__box">
                 <h1>Направления</h1>
-                {% csrf_token %}
-                <form method="POST">
                     <div class="checkbox__input">
-                        <input type="checkbox" id="scales" name="scales">
+                        <input type="checkbox" id="directionsIT" value="Информационные технологии" name="directions">
                         <label for="scales">Информационные технологии</label>
                     </div>
                     <div class="checkbox__input">
-                        <input type="checkbox" id="scales" name="scales">
+                        <input type="checkbox" id="directionsMarket" value="Маркетинг" name="directions">
                         <label for="scales">Маркетинг</label>
                     </div>
                     <div class="checkbox__input">
-                        <input type="checkbox" id="scales" name="scales">
+                        <input type="checkbox" id="directionsDesign" value="Дизайн" name="directions">
                         <label for="scales">Дизайн</label>
                     </div>
-                </form>
+                    <button class="button orange" type="submit">Поиск</button>
             </div>
             <div class="filter__box">
                 <h1>Знания на выходе</h1>
-                <form method="POST">
-                    {% csrf_token %}
                     <div class="checkbox__input">
-                        <input type="checkbox" id="f_junior" value="f_junior" name='special'>
+                        <input type="checkbox" id="f_junior" value="junior" name='special'>
                         <label for="f_junior">Junior</label>
                     </div>
                     <div class="checkbox__input">
-                        <input type="checkbox" id="f_middle" value="f_middle" name='special'>
+                        <input type="checkbox" id="f_middle" value="middle" name='special'>
                         <label for="f_middle">Middle</label>
                     </div>
                     <div class="checkbox__input">
-                        <input type="checkbox" id="f_middle_plus" value="f_middle_plus" name='special'>
+                        <input type="checkbox" id="f_middle_plus" value="middle+" name='special'>
                         <label for="f_middle_plus">Middle+</label>
                     </div>
-                    <button type="sumbit" class="button dark">Применить</button>
-                </form>
+                    <button class="button orange" type="submit">Поиск</button>
             </div>
             <div class="filter__box">
                 <h1>Устройства</h1>
-                <form method="POST">
-                    {% csrf_token %}
                     <div class="checkbox__input">
-                        <input type="checkbox" id="scales" name="scales">
+                        <input type="checkbox" id="devicesDesk" value='Десктоп' name="devices">
                         <label for="scales">Десктоп</label>
                     </div>
                     <div class="checkbox__input">
-                        <input type="checkbox" id="scales" name="scales">
+                        <input type="checkbox" id="devicesWeb" value='Веб'  name="devices">
                         <label for="scales">Веб</label>
                     </div>
                     <div class="checkbox__input">
-                        <input type="checkbox" id="scales" name="scales">
+                        <input type="checkbox" id="devicesMobile" value='Mobile' name="devices">
                         <label for="scales">Mobile</label>
                     </div>
                     <div class="checkbox__input">
-                        <input type="checkbox" id="scales" name="scales">
+                        <input type="checkbox" id="devicesItems" value='Оборудование' name="devices">
                         <label for="scales">Оборудование</label>
                     </div>
                     <div class="checkbox__input">
-                        <input type="checkbox" id="scales" name="scales">
+                        <input type="checkbox" id="devicesSmart" value='Умные устройства' name="devices">
                         <label for="scales">Умные устройства</label>
                     </div>
-                </form>
+                    <button class="button orange" type="submit">Поиск</button>
             </div>
             <div class="filter__box">
                 <h1>Цель знание</h1>
-                <form method="POST">
-                    {% csrf_token %}
                     <div class="checkbox__input">
                     <input type="checkbox" id="scales" name="scales">
                     <label for="scales">Образование</label>
@@ -159,6 +150,7 @@
                     <input type="checkbox" id="scales" name="scales">
                     <label for="scales">Увеличить знания по теме</label>
                 </div>
+                <button class="button orange" type="submit">Поиск</button>
                 </form>
             </div>
         </div>
@@ -175,7 +167,7 @@
                     {% endfor %}
                 </div>
                 <div class="line-width"></div>
-                <a href="#" class="button orange">Подробнее</a>
+                <a href="{% url 'courses:courses-detail' course.uid %}" class="button orange">Подробнее</a>
             </div>
             {% endfor %}
         </div>

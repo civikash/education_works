@@ -6,4 +6,5 @@ app_name = 'courses'
 
 urlpatterns = [
     path('all/', courses.courses_all, name='courses-all'),
+    path('course/<uuid:uid>/', courses.course_detail, name='courses-detail'),
 ]

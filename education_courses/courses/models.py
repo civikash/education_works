@@ -3,6 +3,45 @@ import uuid
 from django.utils.translation import gettext_lazy as _
 
 
+class Directions(models.Model):
+    IT_TECH = 'Информационные технологии'
+    MARKETING = 'Маркетинг'
+    DESIGN = 'Дизайн'
+
+
+    PROGRAM_LANG = [
+        (IT_TECH, _('Информационные технологиий')),
+        (MARKETING, _('Маркетинг')),
+        (DESIGN, _('Дизайн')),
+    ]
+
+    name = models.CharField(_("Языки программирования"), choices=PROGRAM_LANG, max_length=50)
+
+    def __str__(self):
+        return self.name
+
+class Devices(models.Model):
+    DESKTOP = 'Десктоп'
+    WEB = 'Веб'
+    MOBILE = 'Mobile'
+    ITEMS = 'Оборудование'
+    SMART_ITEMS = 'Умные устройства'
+
+
+    PROGRAM_LANG = [
+        (DESKTOP, _('Десктоп')),
+        (WEB, _('Веб')),
+        (MOBILE, _('Mobile')),
+        (ITEMS, _('Оборудование')),
+        (SMART_ITEMS, _('Умные устройства')),
+    ]
+
+    name = models.CharField(_("Языки программирования"), choices=PROGRAM_LANG, max_length=50)
+
+    def __str__(self):
+        return self.name
+
+
 class Program(models.Model):
     BASE = 'Базовый'
 
@@ -58,4 +97,6 @@ class Course(models.Model):
     title = models.CharField(_("Название курса"), max_length=90)
     description = models.TextField(_("Описание"))
     cost = models.IntegerField(_("Цена"))
-    special = models.ForeignKey(Special, verbose_name=_("Уровень"), on_delete=models.CASCADE)
+    directions = models.ForeignKey(Directions, verbose_name=_("Направления"), on_delete=models.CASCADE, null=True)
+    device = models.ForeignKey(Devices, verbose_name=_("Устройства"), on_delete=models.CASCADE, null=True)
+    special = models.ForeignKey(Special, verbose_name=_("Уровень"), on_delete=models.CASCADE, null=True)
