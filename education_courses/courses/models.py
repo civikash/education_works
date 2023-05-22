@@ -13,6 +13,9 @@ class Program(models.Model):
 
     name = models.CharField(_("Языки программирования"), choices=PROGRAM_LANG, max_length=50)
 
+    def __str__(self):
+        return self.name
+
 class Special(models.Model):
     JUNIOR = 'Junior'
     MIDDLE = 'Middle'
@@ -25,6 +28,9 @@ class Special(models.Model):
     ]
 
     name = models.CharField(_("Языки программирования"), choices=PROGRAM_LANG, max_length=50)
+
+    def __str__(self):
+        return self.name
 
 class LangueProg(models.Model):
     C_PLUS = 'C++'
@@ -42,6 +48,9 @@ class LangueProg(models.Model):
     ]
 
     name = models.CharField(_("Языки программирования"), choices=PROGRAM_LANG, max_length=50)
+
+    def __str__(self):
+        return self.name
 
 class Course(models.Model):
     uid = models.UUIDField(unique=True, editable=False, default=uuid.uuid4)

@@ -100,26 +100,27 @@
             </div>
             <div class="filter__box">
                 <h1>Знания на выходе</h1>
-                {% csrf_token %}
                 <form method="POST">
+                    {% csrf_token %}
                     <div class="checkbox__input">
-                        <input type="checkbox" id="scales" name="scales">
-                        <label for="scales">Junior</label>
+                        <input type="checkbox" id="f_junior" value="f_junior" name='special'>
+                        <label for="f_junior">Junior</label>
                     </div>
                     <div class="checkbox__input">
-                        <input type="checkbox" id="scales" name="scales">
-                        <label for="scales">Middle</label>
+                        <input type="checkbox" id="f_middle" value="f_middle" name='special'>
+                        <label for="f_middle">Middle</label>
                     </div>
                     <div class="checkbox__input">
-                        <input type="checkbox" id="scales" name="scales">
-                        <label for="scales">Middle+</label>
+                        <input type="checkbox" id="f_middle_plus" value="f_middle_plus" name='special'>
+                        <label for="f_middle_plus">Middle+</label>
                     </div>
+                    <button type="sumbit" class="button dark">Применить</button>
                 </form>
             </div>
             <div class="filter__box">
                 <h1>Устройства</h1>
-                {% csrf_token %}
                 <form method="POST">
+                    {% csrf_token %}
                     <div class="checkbox__input">
                         <input type="checkbox" id="scales" name="scales">
                         <label for="scales">Десктоп</label>
@@ -144,8 +145,8 @@
             </div>
             <div class="filter__box">
                 <h1>Цель знание</h1>
-                {% csrf_token %}
                 <form method="POST">
+                    {% csrf_token %}
                     <div class="checkbox__input">
                     <input type="checkbox" id="scales" name="scales">
                     <label for="scales">Образование</label>
@@ -162,94 +163,21 @@
             </div>
         </div>
         <div class="courses__body__page-right">
+            {% for course in courses %}
             <div class="course__block">
-                <h1>Разработчик</h1>
-                <p>Вы изучите фундаментальные знания в ИТ и прокачаетесь в
-                    направлении продакт-менеджмента. Получите востребованную профессию 
-                    и возможность открыть бизнес в  сфере информационных технологий</p>
+                <h1>{{ course.title }}</h1>
+                <p>{{ course.description }}</p>
                 <div class="course__block-row">
+                    {% for language in course.lang.all %}
                     <div class="element__course">
-                        <span>С++</span>
+                        <span>{{ language.name }}</span>
                     </div>
-                    <div class="element__course">
-                        <span>Python</span>
-                    </div>
-                    <div class="element__course">
-                        <span>С</span>
-                    </div>
-                    <div class="element__course">
-                        <span>JavaScript</span>
-                    </div>
+                    {% endfor %}
                 </div>
                 <div class="line-width"></div>
                 <a href="#" class="button orange">Подробнее</a>
             </div>
-            <div class="course__block">
-                <h1>Разработчик</h1>
-                <p>Вы изучите фундаментальные знания в ИТ и прокачаетесь в
-                    направлении продакт-менеджмента. Получите востребованную профессию 
-                    и возможность открыть бизнес в  сфере информационных технологий</p>
-                <div class="course__block-row">
-                    <div class="element__course">
-                        <span>С++</span>
-                    </div>
-                    <div class="element__course">
-                        <span>Python</span>
-                    </div>
-                    <div class="element__course">
-                        <span>С</span>
-                    </div>
-                    <div class="element__course">
-                        <span>JavaScript</span>
-                    </div>
-                </div>
-                <div class="line-width"></div>
-                <a href="#" class="button orange">Подробнее</a>
-            </div>
-            <div class="course__block">
-                <h1>Разработчик</h1>
-                <p>Вы изучите фундаментальные знания в ИТ и прокачаетесь в
-                    направлении продакт-менеджмента. Получите востребованную профессию 
-                    и возможность открыть бизнес в  сфере информационных технологий</p>
-                <div class="course__block-row">
-                    <div class="element__course">
-                        <span>С++</span>
-                    </div>
-                    <div class="element__course">
-                        <span>Python</span>
-                    </div>
-                    <div class="element__course">
-                        <span>С</span>
-                    </div>
-                    <div class="element__course">
-                        <span>JavaScript</span>
-                    </div>
-                </div>
-                <div class="line-width"></div>
-                <a href="#" class="button orange">Подробнее</a>
-            </div>
-            <div class="course__block">
-                <h1>Разработчик</h1>
-                <p>Вы изучите фундаментальные знания в ИТ и прокачаетесь в
-                    направлении продакт-менеджмента. Получите востребованную профессию 
-                    и возможность открыть бизнес в  сфере информационных технологий</p>
-                <div class="course__block-row">
-                    <div class="element__course">
-                        <span>С++</span>
-                    </div>
-                    <div class="element__course">
-                        <span>Python</span>
-                    </div>
-                    <div class="element__course">
-                        <span>С</span>
-                    </div>
-                    <div class="element__course">
-                        <span>JavaScript</span>
-                    </div>
-                </div>
-                <div class="line-width"></div>
-                <a href="#" class="button orange">Подробнее</a>
-            </div>
+            {% endfor %}
         </div>
     </div>
     </div>

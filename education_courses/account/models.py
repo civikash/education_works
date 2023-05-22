@@ -26,6 +26,7 @@ class Account(AbstractUser):
         (M, _('Женщина')),
     ]
 
+    id = models.AutoField(primary_key=True)
     uid = models.UUIDField(unique=True, editable=False, default=uuid.uuid4)
     username = None
     email = models.EmailField(_('Адрес электронной почты'), unique=True)

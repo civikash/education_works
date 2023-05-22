@@ -978,6 +978,9 @@ p {
   font-size: 16px;
   height: 35px;
 }
+.courses__body__page-right .course__block .dark {
+  background-color: #1D212F;
+}
 .courses__body__page-right .course__block .course__block-row {
   display: flex;
   margin-top: 8px;
