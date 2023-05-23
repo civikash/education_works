@@ -14,8 +14,6 @@ def courses_all(request):
             search_query = request.POST.get('search')
     else:
         selected_specials = []
-        selected_devices = []
-        selected_directions = []
         search_query = None
 
     courses = Course.objects.all()
