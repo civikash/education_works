@@ -1,0 +1,309 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+    <title>Курс</title>
+</head>
+<body>
+    <div class="course__order__body">
+        <div class="container">
+            <h1>Для продолжения регистрации заявки заполните информацию ниже и нажмите 
+                кнопку "Продолжить"</h1>
+
+            <div class="course__order__body-main">
+                <div class="order__list">
+                    <div class="order__block">
+                        <ul>
+                            <li>Направление<svg width="590" height="1" viewBox="0 0 300 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <line y1="1.5" x2="300" y2="1.5" stroke="#FD7401" stroke-width="3" stroke-dasharray="10 10"/>
+                                </svg>
+                                {{ course.directions }}
+                            </li>
+                            <li>Программа<svg width="100" height="3" viewBox="0 0 300 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <line y1="1.5" x2="300" y2="1.5" stroke="#FD7401" stroke-width="3" stroke-dasharray="10 10"/>
+                                </svg>
+                                Разработчик
+                            </li>
+                            <li>Специализация<svg width="100" height="3" viewBox="0 0 300 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <line y1="1.5" x2="300" y2="1.5" stroke="#FD7401" stroke-width="3" stroke-dasharray="10 10"/>
+                                </svg>
+                                Программирование
+                            </li>
+                            <li>Тип обучения<svg width="100" height="3" viewBox="0 0 300 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <line y1="1.5" x2="300" y2="1.5" stroke="#FD7401" stroke-width="3" stroke-dasharray="10 10"/>
+                                </svg>
+                                Индивидуально в записи
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="order__checked-package">
+                <div class="order__checked">
+                    <h1>Выберите специализацию</h1>
+                    <div class="attention">
+                        <h1><svg width="44" height="24" viewBox="0 0 100 44" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <rect width="100" height="44" fill="url(#pattern0)"/>
+                            <defs>
+                            <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+                            <use xlink:href="#image0_69_677" transform="matrix(0.0044 0 0 0.01 0.28 0)"/>
+                            </pattern>
+                            <image id="image0_69_677" width="100" height="100" xlink:href="data:image/png;base64,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"/>
+                            </defs>
+                            </svg>
+                            Вы можете выбрать одну или сразу две специализации, но тогда нагрузкабудет 
+                            выше</h1>
+                        <span>Мы рекомендуем сделать выбор специализации после начала обучения, когда вы изучите 
+                            особенности специализаций и поймете, какая подходит именно вам.</span>
+                    </div>
+                    <div class="order__selected">
+                        <div class="selected">
+                            <img src="{% static 'img/img_hend.png'%}" alt="">
+                            <p>Выберу в процессе обучения</p>
+                        </div>
+                        <div class="selected">
+                            <img src="{% static 'img/img_cursor.png'%}" alt="">
+                            <p>Программирование</p>
+                        </div>
+                        <div class="selected">
+                            <img src="{% static 'img/imt_plug.png'%}" alt="">
+                            <p>Тестирование</p>
+                        </div>
+                        <div class="selected">
+                            <img src="{% static 'img/img_analyze.png'%}" alt="">
+                            <p>Аналитика</p>
+                        </div>
+                        <div class="selected">
+                            <img src="{% static 'img/img_rocket.png'%}" alt="">
+                            <p>Продуктовое управление в ИТ</p>
+                        </div>
+                        <div class="selected">
+                            <img src="{% static 'img/img_electricity.png'%}" alt="">
+                            <p>Проектное управление в ИТ</p>
+                        </div>
+                        <div class="selected">
+                            <img src="{% static 'img/img_architecture.png'%}" alt="">
+                            <p>Архитектура</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="order__checked">
+                    <h1>Выберите пакет</h1>
+                    <div class="attention">
+                        <h1><svg width="44" height="24" viewBox="0 0 100 44" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <rect width="100" height="44" fill="url(#pattern0)"/>
+                            <defs>
+                            <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+                            <use xlink:href="#image0_69_677" transform="matrix(0.0044 0 0 0.01 0.28 0)"/>
+                            </pattern>
+                            <image id="image0_69_677" width="100" height="100" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAGAklEQVR4nO2daYgcVRDHn8b7PjCoeOAtHgHd7FT1JrioCBERghIR/aIQFP1gRETwSyLoBwVFImLY7apZXcVg9INREjzQqEgIEpWgBu94xRgTd+e93sQrseXNZpLJOO1mZ7u7Xve8H/xhP+2rqv+87p2u6rdKeTwej8fj8Xg8Ho/HU2RGh/qPqVWDXiv7s3Q8XUstxIphXK4ZdxrG2GrXz8utOdLxdRWa4VbN8HfDiFZpgh0mxNul4+wKIsYbkozY2xT8x4RwnXS8pWYL9R2pGTbuiyG7TPlh0/CMw6XjLi2a4JF9NaPpvvKgdNylpPZ031ma4Y9JG0Lw++hg5Qzp+EuHYXhlsmY07ZKXpOMvFREFV3ZqRkO1EK6SzqMUxIv6D9AMn0zVEM34qf1d0vkUHk2wYKpm7BbBndL5FJpaiMcZwq2pGcLwm36m93jpvAqLZliSnhm7TXlCOq9CEg32Xvh/j0c6vpcQ7IiqeLF0foVDM65Kf3c0TMG3pPMrFBEF87IyY88NPpgrnWchiJfhoYZwQ/aG4DfxUP8h0vk6j2FcmLkZDYV4v3S+TrNtsHKKIRzLzRCGaBv1nSydt7MYgufzM2O3hqXzdhJNfUG9qZSzIeNrwmzp/J0iXqT2NwQfCOyOhtbaGKTr4AymivMFzYjHdwrcIl0Hh9qy+LO4IYy/bH22cpTqdgzho9JmmD2mPKy6mVqIZ3fSljWZXbbwTz3Ye67qVgzhCmkTzH+1XHUjtqXqQPHjdqqFOEd1E/FAz4GG4XPpwpukSxfjehuj6hY0wT3SRTcTmUKwQHUD0XAw3RCMShfcTCgYMTz7BFV2NEGYSsEIXktawzA8l86lC5aoMjNKwSX1yfR0rvOrktbRhC+mtMbOWgg9qqxohndTvKSszmLKsc0ueT+O1X6qbEQEN6Z6jSf4MGktw/h6mmvZlrIqXVuW4bs0i6QJP8tnJ46/1rBxoOcwVRY0wwOp7g6u75Cvk9YzhGtSX49xoSoD26szT82iLasZf0xaUxN8nPp6BNtHKDhdFR1N8EIGn9ZYE/yauCbj+kzWZFyqiowJcVZ2bVkwiesyfpvhPNdlqrBtWca1WT4qVwlM5j3Eye8S+CheNm+aKhr2teTMPqU8rqTvB+lOzLdRFeerImFboZpwU+aGDLWfPLTzVlmuqwk2F+rUCEPweNZmGMZ4ZKDn6HbrZzE130aPqSJghoLzNeNfeRgSDQfTE+5dma9tTbevTCjXMYQr8yiIYYztd5z2TwXyWd8wvqFcRod4bY7FiHUVzmmNofbU7GNzjYEq1ygXiZddcJBh/CLPYkQUXNQax9hQ74l5xmAYvooXzzlYuYZhvC/fQmDcrldhH2/kHYemyr3KubYsYy33QlSDvtZY7FxV3nHYpwZjAz0nKVcwhNX8i4BxVK1c0RpLFMIMiVg0ASkXGK3ipc2nunWrdL3dixVRM+yjC034nnQxjDOC1aLt3hrhzfJFQKdUC/EmETNsS9MwfC9dAOOYNMFPIqfYacKHpJM3jir3U+xGBmadZhi3SSduHFXup9jZE9qkkzYNEYxqxrc1wZuZ90FcPMUuosrl7nwS8eXmvsTmJ/uPSGuMNA3ZWmVqhm1dasZ10omauiCy52m1xmhvqPZ9QUd2ybpM2732RDbpJE1DhGuK8WYW3JGJGfaxtmbcUhBDVjpkSDan2BnCxfLJYbMhY+0StfcRO7MlHl+Wp9hldbrb1E2BV5vvI/XhCsal4nFl3e61rUrppEyiKajtcLX909flN7Psn+XpmEHBXOlkTFk01VPs6m1Zwi/FE+GSaKqn2GmGu8ST4HJJM97d4e6YNy3ToeVuFeGGjr4s2oE38eC5nNLUd96kDdEMV0sHbkqqjma5XHqIaEqmdsMZE2JPMUjrnXIvbNodsKPdTPK+meLUQzoshwhXqE6xh9bblx3Fk+ByyNay3fjrJHcJXG9bktLJmIKrXsO0/q+inaH181c4FTPesee8pGLGXsbwzDPH/9Mm3OYFE9bA1srWLHUjPB6Px+PxeDwej8fj8Xg8Ho9HtfAv8K8bKdOXWJgAAAAASUVORK5CYII="/>
+                            </defs>
+                            </svg>
+                            Вы можете выбрать одну или сразу две специализации, но тогда нагрузкабудет 
+                            выше</h1>
+                        <span>Мы рекомендуем сделать выбор специализации после начала обучения, когда вы изучите 
+                            особенности специализаций и поймете, какая подходит именно вам.</span>
+                    </div>
+                    <div class="order__selected">
+                        <div class="package__block">
+                            <h1>Базовый</h1>
+                            <div class="package__block-row">
+                                <div class="package__block-column">
+                                    <span>Знания на выходе:</span>
+                                    <span>Junior</span>
+                                </div>
+                                <div class="package__block-column">
+                                    <span>Срок обучения:</span>
+                                    <span>12 месяцев</span>
+                                </div>
+                            </div>
+                            <div class="package__block-row">
+                                <div class="package__block-column">
+                                    <span>Диплом:</span>
+                                    <span>В конце обучения</span>
+                                </div>
+                                <div class="package__block-column">
+                                    <span>Трудоустройство:</span>
+                                    <span>Через 9 месяцев</span>
+                                </div>
+                                <div class="package__block-column cost_sz">
+                                    <span>от 3 510 руб/мес</span>
+                                    <span>рассрочка до 36 месяцев</span>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="order__selected">
+                        <div class="package__block">
+                            <h1>Мастер</h1>
+                            <div class="package__block-row">
+                                <div class="package__block-column">
+                                    <span>Знания на выходе:</span>
+                                    <span>Middle</span>
+                                </div>
+                                <div class="package__block-column">
+                                    <span>Срок обучения:</span>
+                                    <span>24 месяцев</span>
+                                </div>
+                            </div>
+                            <div class="package__block-row">
+                                <div class="package__block-column">
+                                    <span>Диплом:</span>
+                                    <span>В конце обучения</span>
+                                </div>
+                                <div class="package__block-column">
+                                    <span>Трудоустройство:</span>
+                                    <span>Через 9 месяцев</span>
+                                </div>
+                                <div class="package__block-column cost_sz">
+                                    <span>от 4052 руб/мес</span>
+                                    <span>рассрочка до 36 месяцев</span>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="order__selected">
+                            <div class="package__block">
+                                <h1>Про</h1>
+                                <div class="package__block-row">
+                                    <div class="package__block-column">
+                                        <span>Знания на выходе:</span>
+                                        <span>Middle+</span>
+                                    </div>
+                                    <div class="package__block-column">
+                                        <span>Срок обучения:</span>
+                                        <span>36 месяцев</span>
+                                    </div>
+                                </div>
+                                <div class="package__block-row">
+                                    <div class="package__block-column">
+                                        <span>Диплом:</span>
+                                        <span>12 месяцев</span>
+                                    </div>
+                                    <div class="package__block-column">
+                                        <span>Трудоустройство:</span>
+                                        <span>Через 9 месяцев</span>
+                                    </div>
+                                    <div class="package__block-column cost_sz">
+                                        <span>от 5921 руб/мес</span>
+                                        <span>рассрочка до 36 месяцев</span>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="order__checked">
+                                <h1>Выберите темп обучения</h1>
+                                <div class="order__selected">
+                                    <div class="package__block">
+                                        <h1>Базовый</h1>
+                                        <div class="package__block-row">
+                                            <div class="package__block-column">
+                                                <span>Знания на выходе:</span>
+                                                <span>Junior</span>
+                                            </div>
+                                            <div class="package__block-column">
+                                                <span>Срок обучения:</span>
+                                                <span>12 месяцев</span>
+                                            </div>
+                                        </div>
+                                        <div class="package__block-row">
+                                            <div class="package__block-column">
+                                                <span>Диплом:</span>
+                                                <span>В конце обучения</span>
+                                            </div>
+                                            <div class="package__block-column">
+                                                <span>Трудоустройство:</span>
+                                                <span>Через 9 месяцев</span>
+                                            </div>
+                                            <div class="package__block-column cost_sz">
+                                                <span>от 3 510 руб/мес</span>
+                                                <span>рассрочка до 36 месяцев</span>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="order__selected">
+                                    <div class="package__block">
+                                        <h1>Мастер</h1>
+                                        <div class="package__block-row">
+                                            <div class="package__block-column">
+                                                <span>Знания на выходе:</span>
+                                                <span>Middle</span>
+                                            </div>
+                                            <div class="package__block-column">
+                                                <span>Срок обучения:</span>
+                                                <span>24 месяцев</span>
+                                            </div>
+                                        </div>
+                                        <div class="package__block-row">
+                                            <div class="package__block-column">
+                                                <span>Диплом:</span>
+                                                <span>В конце обучения</span>
+                                            </div>
+                                            <div class="package__block-column">
+                                                <span>Трудоустройство:</span>
+                                                <span>Через 9 месяцев</span>
+                                            </div>
+                                            <div class="package__block-column cost_sz">
+                                                <span>от 4052 руб/мес</span>
+                                                <span>рассрочка до 36 месяцев</span>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    <div class="order__selected">
+                                        <div class="package__block">
+                                            <h1>Про</h1>
+                                            <div class="package__block-row">
+                                                <div class="package__block-column">
+                                                    <span>Знания на выходе:</span>
+                                                    <span>Middle+</span>
+                                                </div>
+                                                <div class="package__block-column">
+                                                    <span>Срок обучения:</span>
+                                                    <span>36 месяцев</span>
+                                                </div>
+                                            </div>
+                                            <div class="package__block-row">
+                                                <div class="package__block-column">
+                                                    <span>Диплом:</span>
+                                                    <span>12 месяцев</span>
+                                                </div>
+                                                <div class="package__block-column">
+                                                    <span>Трудоустройство:</span>
+                                                    <span>Через 9 месяцев</span>
+                                                </div>
+                                                <div class="package__block-column cost_sz">
+                                                    <span>от 5921 руб/мес</span>
+                                                    <span>рассрочка до 36 месяцев</span>
+                                                </div>
+                                            </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+        </div>
+                </div>
+               
+            </div>
+            
+            </div>
+            
+    </div>
+    </div>
+</body>
+</html>

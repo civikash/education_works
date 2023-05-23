@@ -104,7 +104,7 @@
     <div class="cost">
         <h1>{{ course.cost }} ₽/мес</h1>
         <span>Рассрочка до 36 месяцев</span>
-        <button class="button orange">Оставить заявку</button>
+        <a href="{% url 'courses:courses-order' uid=course.uid %}" class="button orange">Оставить заявку</a>
     </div>
     </div>
 </body>

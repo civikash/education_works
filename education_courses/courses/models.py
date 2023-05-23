@@ -100,3 +100,8 @@ class Course(models.Model):
     directions = models.ForeignKey(Directions, verbose_name=_("Направления"), on_delete=models.CASCADE, null=True)
     device = models.ForeignKey(Devices, verbose_name=_("Устройства"), on_delete=models.CASCADE, null=True)
     special = models.ForeignKey(Special, verbose_name=_("Уровень"), on_delete=models.CASCADE, null=True)
+
+
+class Order(models.Model):
+    uid = models.UUIDField(unique=True, editable=False, default=uuid.uuid4)
+    course = models.ForeignKey(Course, verbose_name=_("Курс"), on_delete=models.CASCADE)

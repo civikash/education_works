@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from courses.models import Course
+from courses.models import Course, Order
 import uuid
 from django.shortcuts import get_object_or_404
 
@@ -35,4 +35,12 @@ def course_detail(request, uid):
     course = get_object_or_404(Course, uid=uid)
     template = 'courses/course_detail.html'
     context = {'course': course}
+    return render(request, template, context)
+
+
+def course_order(request, uid):
+    course = get_object_or_404(Course, uid=uid)
+    order, created = Order.objects.get_or_create(course=course)
+    template = 'courses/course_order.html'
+    context = {'course': course, 'order': order}
     return render(request, template, context)
