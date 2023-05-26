@@ -10,19 +10,27 @@
     &-main {
         display: flex;
         gap: 85px;
+        max-height: 500px;
         margin-top: 45px;
 
         .order__list {
             display: flex;
+            position: fixed;
             flex-direction: column;
+            width: 40%;
             gap: 15px;
+            height: 85%;
+            bottom: 24px;
+
 
             .order__block {
                 display: flex;
                 background-color: $dark;
                 height: 100%;
+                flex-direction: column;
+                position: relative;
                 padding: 15px;
-                width: 700px;
+                width: 100%;
                 border-radius: 15px;
 
                 ul {
@@ -37,16 +45,21 @@
                         display: flex;
                         align-items: center;
                         width: 100%;
-                        justify-content: space-between;
                         gap: 13px;
                         color: $white;
 
                         svg {
                             align-self: end;
-                            width: 100%;
+                            width: auto;
                             height: 1px;
                         }
                     }
+                }
+                .style__line {
+                    position: absolute;
+                    width: 100%;
+                    right: 0;
+                    top: 150px;
                 }
             }
         }
@@ -60,6 +73,9 @@
                 display: flex;
                 gap: 45px;
                 flex-direction: column;
+                height: 100%;
+                margin-left: auto;
+                width: 52%;
             }
 
             .attention {
@@ -75,9 +91,14 @@
                     font-weight: 600;
                 }
 
+
                 span {
                     color: $gray;
                 }
+            }
+
+            h2 {
+                font-size: 17px;
             }
         }
     }
@@ -152,4 +173,87 @@
             }
         }
     }
+}
+
+
+.temp__selected {
+    display: flex;
+    border: 1px solid $gray;
+    padding: 15px;
+    border-radius: 8px;
+    gap: 11px;
+    width: 550px;
+    margin-top: 15px;
+    img {
+        width: 30px !important;
+        height: 30px !important;
+    }
+
+.temp__block {
+    display: flex;
+    gap: 9px;
+    flex-direction: column;
+
+    h1 {
+        font-size: 19px !important;
+    }
+
+    .temp__cost {
+        font-size: 19px;
+        margin-top: 9px;
+        font-weight: 600;
+        margin-left: auto;
+    }
+}
+}
+
+.option__selected {
+    display: flex;
+    height: 150px;
+    flex-direction: column;
+    border: 1px solid $gray;
+    padding: 15px;
+    border-radius: 8px;
+    gap: 11px;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20px;
+    margin-top: 15px;
+
+    h1 {
+        font-size: 16px;
+    }
+}
+
+.option__row {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+
+    .option__cost {
+        margin-left: auto;
+        margin-right: 20px;
+        margin-bottom: 15px;
+        font-size: 19px;
+        font-weight: 500;
+    }
+}
+
+.opinion__footer {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    h1 {
+        font-size: 21px;
+    }
+
+    input {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        height: 55px;
+        border: 1px solid $gray;
+        border-radius: 20px;
+        width: 100%;
+        padding: 9px;
+    }
+    
 }

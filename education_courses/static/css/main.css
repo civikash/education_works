@@ -1107,19 +1107,26 @@ p {
 .course__order__body-main {
   display: flex;
   gap: 85px;
+  max-height: 500px;
   margin-top: 45px;
 }
 .course__order__body-main .order__list {
   display: flex;
+  position: fixed;
   flex-direction: column;
+  width: 40%;
   gap: 15px;
+  height: 85%;
+  bottom: 24px;
 }
 .course__order__body-main .order__list .order__block {
   display: flex;
   background-color: #1D212F;
   height: 100%;
+  flex-direction: column;
+  position: relative;
   padding: 15px;
-  width: 700px;
+  width: 100%;
   border-radius: 15px;
 }
 .course__order__body-main .order__list .order__block ul {
@@ -1134,14 +1141,19 @@ p {
   display: flex;
   align-items: center;
   width: 100%;
-  justify-content: space-between;
   gap: 13px;
   color: #FFFFFF;
 }
 .course__order__body-main .order__list .order__block ul li svg {
   align-self: end;
-  width: 100%;
+  width: auto;
   height: 1px;
+}
+.course__order__body-main .order__list .order__block .style__line {
+  position: absolute;
+  width: 100%;
+  right: 0;
+  top: 150px;
 }
 .course__order__body-main .order__checked {
   display: flex;
@@ -1152,6 +1164,9 @@ p {
   display: flex;
   gap: 45px;
   flex-direction: column;
+  height: 100%;
+  margin-left: auto;
+  width: 52%;
 }
 .course__order__body-main .order__checked .attention {
   padding: 13px;
@@ -1167,6 +1182,9 @@ p {
 }
 .course__order__body-main .order__checked .attention span {
   color: #959595;
+}
+.course__order__body-main .order__checked h2 {
+  font-size: 17px;
 }
 .course__order__body .container {
   display: flex;
@@ -1228,4 +1246,79 @@ p {
 }
 .order__selected .package__block-column.cost_sz span:last-child {
   color: #959595;
+}
+
+.temp__selected {
+  display: flex;
+  border: 1px solid #959595;
+  padding: 15px;
+  border-radius: 8px;
+  gap: 11px;
+  width: 550px;
+  margin-top: 15px;
+}
+.temp__selected img {
+  width: 30px !important;
+  height: 30px !important;
+}
+.temp__selected .temp__block {
+  display: flex;
+  gap: 9px;
+  flex-direction: column;
+}
+.temp__selected .temp__block h1 {
+  font-size: 19px !important;
+}
+.temp__selected .temp__block .temp__cost {
+  font-size: 19px;
+  margin-top: 9px;
+  font-weight: 600;
+  margin-left: auto;
+}
+
+.option__selected {
+  display: flex;
+  height: 150px;
+  flex-direction: column;
+  border: 1px solid #959595;
+  padding: 15px;
+  border-radius: 8px;
+  gap: 11px;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 20px;
+  margin-top: 15px;
+}
+.option__selected h1 {
+  font-size: 16px;
+}
+
+.option__row {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+.option__row .option__cost {
+  margin-left: auto;
+  margin-right: 20px;
+  margin-bottom: 15px;
+  font-size: 19px;
+  font-weight: 500;
+}
+
+.opinion__footer {
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+.opinion__footer h1 {
+  font-size: 21px;
+}
+.opinion__footer input {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height: 55px;
+  border: 1px solid #959595;
+  border-radius: 20px;
+  width: 100%;
+  padding: 9px;
 }/*# sourceMappingURL=main.css.map */
