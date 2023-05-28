@@ -30,7 +30,11 @@
             <div class="header__nav">
                 <nav class="nav">
                     <ul class="nav__list">
+                        {% if request.user %}
+                        <li><a class="orange" href="{% url 'account:profile' %}">{{ request.user.email }}</a></li>
+                        {% else %}
                         <li><a class="button orange" href="{% url 'account:login' %}">Войти</a></li>
+                        {% endif %}
                     </ul>
                 </nav>
             </div>
@@ -65,6 +69,18 @@
                 <h2>Контакты</h2>
                 <div class="line-width"></div>
                 <h2>Email: {{ user.email }}</h2>
+                <div class="courses__block">
+                    <h1>Ваши курсы</h1>
+                    {% for course in courses %}
+                    <div class="order__item">
+                        <h1>{{ course.directions }}</h1>
+                        <span>Пакет: {{ course.package }}</span>
+                        <span>Дополнительные опции: {{ course.option }}</span>
+                        <span>Темп обучения: {{ course.temp }}</span>
+                        <span>Номер телефона: {{ course.phone_number }}</span>
+                    </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>

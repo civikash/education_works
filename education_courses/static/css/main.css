@@ -756,6 +756,21 @@ p {
   align-items: center;
   gap: 9px;
 }
+.profile__body .profile__right .courses__block {
+  display: flex;
+  flex-direction: column;
+}
+.profile__body .profile__right .courses__block h1 {
+  font-size: 23px !important;
+}
+.profile__body .profile__right .courses__block .order__item {
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  padding: 11px;
+  border: 1px solid #959595;
+}
 
 .header__courses {
   display: flex;
@@ -1095,6 +1110,73 @@ p {
   width: 155px;
 }
 
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 30%;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-content {
+  background-color: #1D212F;
+}
+.modal-content .order__block {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.modal-content .order__block h1 {
+  color: #FFFFFF;
+}
+.modal-content .order__block .order__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 45px;
+  justify-content: center;
+}
+.modal-content .order__block .order__form input {
+  width: 100%;
+  padding: 13px;
+  border-radius: 9px;
+  background-color: #FFFFFF;
+}
+.modal-content .order__block .order__form input[name=phone_number] {
+  background-image: url("../img/rus.png");
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 35px;
+  padding-left: 45px;
+}
+
 .course__order__body {
   display: flex;
   width: 100%;
@@ -1114,10 +1196,10 @@ p {
   display: flex;
   position: fixed;
   flex-direction: column;
-  width: 40%;
+  width: 30%;
   gap: 15px;
-  height: 85%;
-  bottom: 24px;
+  height: 55%;
+  top: 100px;
 }
 .course__order__body-main .order__list .order__block {
   display: flex;
@@ -1129,35 +1211,37 @@ p {
   width: 100%;
   border-radius: 15px;
 }
-.course__order__body-main .order__list .order__block ul {
-  display: flex;
-  width: 100%;
-  font-weight: 400;
-  gap: 13px;
-  font-size: 12px;
-  flex-direction: column;
-}
-.course__order__body-main .order__list .order__block ul li {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  gap: 13px;
+.course__order__body-main .order__list .order__block h1 {
+  font-size: 29px;
+  margin: 15px;
+  margin-right: auto;
   color: #FFFFFF;
 }
-.course__order__body-main .order__list .order__block ul li svg {
-  align-self: end;
-  width: auto;
-  height: 1px;
+.course__order__body-main .order__list .order__block .order__form {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 45px;
+  flex-direction: column;
 }
-.course__order__body-main .order__list .order__block .style__line {
-  position: absolute;
+.course__order__body-main .order__list .order__block .order__form input {
   width: 100%;
-  right: 0;
-  top: 150px;
+  padding: 13px;
+  border-radius: 9px;
+  background-color: #FFFFFF;
+}
+.course__order__body-main .order__list .order__block .order__form input[name=phone_number] {
+  background-image: url("../img/rus.png");
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 35px;
+  padding-left: 45px;
 }
 .course__order__body-main .order__checked {
   display: flex;
   flex-direction: column;
+  position: relative;
   text-align: start;
 }
 .course__order__body-main .order__checked-package {
@@ -1186,6 +1270,25 @@ p {
 .course__order__body-main .order__checked h2 {
   font-size: 17px;
 }
+.course__order__body-main .order__checked input[type=radio] {
+  left: 0;
+  width: 52%;
+  height: 90%;
+  cursor: pointer;
+  z-index: 10;
+  opacity: 0;
+  position: absolute;
+}
+.course__order__body-main .order__checked input[type=radio]:checked + .temp__selected {
+  border-color: #FD7401;
+  color: #FD7401;
+}
+.course__order__body-main .order__checked .temps__event {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
 .course__order__body .container {
   display: flex;
   justify-content: center;
@@ -1200,6 +1303,39 @@ p {
   text-align: left;
   flex-direction: column;
   gap: 15px;
+}
+.order__selected input[type=radio] {
+  right: 0;
+  width: 52%;
+  height: 20%;
+  cursor: pointer;
+  z-index: 10;
+  opacity: 0;
+  position: absolute;
+}
+.order__selected input[type=radio]:checked + .package__block {
+  border-color: #FD7401;
+  color: #FD7401;
+}
+.order__selected input[type=checkbox] {
+  right: 0;
+  width: 860px;
+  cursor: pointer;
+  height: 43px;
+  z-index: 10;
+  top: 0;
+  opacity: 0;
+  position: absolute;
+}
+.order__selected input[type=checkbox]:checked ~ .selected {
+  border-color: #FD7401 !important;
+  color: #FD7401;
+}
+.order__selected .direction__selected {
+  position: relative;
+  justify-content: center;
+  flex-direction: column;
+  display: flex;
 }
 .order__selected .selected {
   display: flex;
@@ -1216,6 +1352,7 @@ p {
   display: flex;
   padding: 15px;
   width: 550px;
+  position: relative;
   font-size: 13px;
   border-radius: 13px;
   border: 1px solid #959595;
@@ -1295,7 +1432,7 @@ p {
 
 .option__row {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
   gap: 15px;
 }
 .option__row .option__cost {
@@ -1321,4 +1458,26 @@ p {
   border-radius: 20px;
   width: 100%;
   padding: 9px;
+}
+
+.options__event {
+  display: flex;
+  align-items: center;
+  width: 49%;
+  justify-content: center;
+  position: relative;
+}
+.options__event input[type=checkbox] {
+  left: 0;
+  cursor: pointer;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  top: 0;
+  opacity: 0;
+  position: absolute;
+}
+.options__event input[type=checkbox]:checked ~ .option__selected {
+  border-color: #FD7401 !important;
+  color: #FD7401;
 }/*# sourceMappingURL=main.css.map */

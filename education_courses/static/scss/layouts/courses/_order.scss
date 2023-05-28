@@ -17,10 +17,10 @@
             display: flex;
             position: fixed;
             flex-direction: column;
-            width: 40%;
+            width: 30%;
             gap: 15px;
-            height: 85%;
-            bottom: 24px;
+            height: 55%;
+            top: 100px;
 
 
             .order__block {
@@ -32,34 +32,35 @@
                 padding: 15px;
                 width: 100%;
                 border-radius: 15px;
+                h1 {
+                    font-size: 29px;
+                    margin: 15px;
+                    margin-right: auto;
+                    color: $white;
+                }
 
-                ul {
+                .order__form {
                     display: flex;
-                    width: 100%;
-                    font-weight: 400;
-                    gap: 13px;
-                    font-size: 12px;
+                    height: 100%;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 45px;
                     flex-direction: column;
 
-                    li {
-                        display: flex;
-                        align-items: center;
+                    input {
                         width: 100%;
-                        gap: 13px;
-                        color: $white;
-
-                        svg {
-                            align-self: end;
-                            width: auto;
-                            height: 1px;
-                        }
+                        padding: 13px;
+                        border-radius: 9px;
+                        background-color: $white;
                     }
-                }
-                .style__line {
-                    position: absolute;
-                    width: 100%;
-                    right: 0;
-                    top: 150px;
+
+                    input[name="phone_number"] {
+                        background-image: url('../img/rus.png');
+                        background-repeat: no-repeat; 
+                        background-position: left center; 
+                        background-size: 35px;
+                        padding-left: 45px;
+                    }
                 }
             }
         }
@@ -67,6 +68,7 @@
         .order__checked {
             display: flex;
             flex-direction: column;
+            position: relative;
             text-align: start;
 
             &-package {
@@ -100,6 +102,28 @@
             h2 {
                 font-size: 17px;
             }
+
+            input[type="radio"] {
+                left: 0;
+                width: 52%;
+                height: 90%;
+                cursor: pointer;
+                z-index: 10;
+                opacity: 0;
+                position: absolute;
+            }
+        
+            input[type="radio"]:checked + .temp__selected {
+                border-color: $orange;
+                color: $orange;
+            }
+
+            .temps__event {
+                position: relative;
+                width: 100%;
+                display: flex;
+                align-items: center;
+            }
         }
     }
 
@@ -119,6 +143,46 @@
     flex-direction: column;
     gap: 15px;
 
+    input[type="radio"] {
+        right: 0;
+        width: 52%;
+        height: 20%;
+        cursor: pointer;
+        z-index: 10;
+        opacity: 0;
+        position: absolute;
+    }
+
+    input[type="radio"]:checked + .package__block {
+        border-color: $orange;
+        color: $orange;
+    }
+
+    input[type="checkbox"] {
+        right: 0;
+        width: 860px;
+        cursor: pointer;
+        height: 43px;
+        z-index: 10;
+        top: 0;
+        opacity: 0;
+        position: absolute;
+    }
+
+    input[type="checkbox"]:checked ~ .selected {
+        border-color: $orange !important;
+        color: $orange;
+    }
+
+
+
+    .direction__selected {
+        position: relative;
+        justify-content: center;
+        flex-direction: column;
+        display: flex;
+    }
+
     .selected {
         display: flex;
         align-items: center;
@@ -136,6 +200,7 @@
         display: flex;
         padding: 15px;
         width: 550px;
+        position: relative;
         font-size: 13px;
         border-radius: 13px;
         border: 1px solid $gray;
@@ -144,6 +209,7 @@
         h1 {
             font-size: 18px;
         }
+
 
         &-row {
             display: flex;
@@ -227,7 +293,7 @@
 
 .option__row {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
     gap: 15px;
 
     .option__cost {
@@ -256,4 +322,28 @@
         padding: 9px;
     }
     
+}
+
+.options__event {
+    display: flex;
+    align-items: center;
+    width: 49%;
+    justify-content: center;
+    position: relative;
+
+    input[type="checkbox"] {
+        left: 0;
+        cursor: pointer;
+        height: 100%;
+        width: 100%;
+        z-index: 10;
+        top: 0;
+        opacity: 0;
+        position: absolute;
+    }
+
+    input[type="checkbox"]:checked ~ .option__selected {
+        border-color: $orange !important;
+        color: $orange;
+    }
 }

@@ -19,7 +19,11 @@
         <div class="header__nav">
             <nav class="nav">
                 <ul class="nav__list">
+                    {% if request.user %}
+                    <li><a class="orange" href="{% url 'account:profile' %}">{{ request.user.email }}</a></li>
+                    {% else %}
                     <li><a class="button orange" href="{% url 'account:login' %}">Войти</a></li>
+                    {% endif %}
                 </ul>
             </nav>
         </div>

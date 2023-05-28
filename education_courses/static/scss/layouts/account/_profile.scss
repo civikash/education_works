@@ -46,5 +46,23 @@
             align-items: center;
             gap: 9px;
         }
+
+        .courses__block {
+            display: flex;
+            flex-direction: column;
+        
+            h1 {
+                font-size: 23px !important;
+            }
+
+            .order__item {
+                margin-bottom: 25px;
+                display: flex;
+                flex-direction: column;
+                border-radius: 8px;
+                padding: 11px;
+                border: 1px solid $gray;
+            }
+        }
     }
 }

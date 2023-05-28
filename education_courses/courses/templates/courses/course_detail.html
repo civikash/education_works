@@ -104,8 +104,26 @@
     <div class="cost">
         <h1>{{ course.cost }} ₽/мес</h1>
         <span>Рассрочка до 36 месяцев</span>
-        <a href="{% url 'courses:courses-order' uid=course.uid %}" class="button orange">Оставить заявку</a>
+        <button id="openModal" class="button orange">Оставить заявку</button>
     </div>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <form method="POST">
+            {% csrf_token %}
+            <div class="order__block">
+                <h1>Оставьте заявку</h1>
+                <div class="order__form">
+                    <input type="text" name="name" placeholder="Имя Фамилия" required>
+                    <input type="text" name="email" placeholder="Email" required>
+                    <input required type="text" name="phone_number" maxlength="10" pattern="[0-9]{10,13}" placeholder="985352-00-14">
+                    <button class="button orange" type="submit">Сохранить изменения</button>
+                </div>
+            </div>
+        </form>
+        </div>
+      </div>
     </div>
 </body>
+<script src="{% static 'js/modal.js' %}"></script>
 </html>
