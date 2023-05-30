@@ -127,6 +127,10 @@ p {
   background-color: #FD7401;
   color: #FFFFFF;
 }
+.button.dark {
+  background-color: #1D212F;
+  color: #FFFFFF;
+}
 
 .header__landing {
   display: flex;
@@ -173,7 +177,7 @@ p {
   background-color: #FD7401;
   width: 455px;
   position: absolute;
-  top: 196px;
+  top: 222px;
   left: 0;
   height: 486px;
   border-radius: 20px 20px 0px 0px;
@@ -216,6 +220,9 @@ p {
   width: 150px;
   height: 55px;
   border-radius: 4px;
+}
+.header__body .container .header_right .header__search-row select {
+  color: #959595;
 }
 
 .nav {
@@ -772,6 +779,71 @@ p {
   border: 1px solid #959595;
 }
 
+.update__profile__body {
+  margin-top: 55px;
+}
+.update__profile__body .container {
+  display: flex;
+  gap: 25px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.update__profile__body .profile__avatar {
+  display: flex;
+  gap: 15px;
+  flex-wrap: nowrap;
+}
+.update__profile__body .data__info {
+  display: flex;
+  width: 1400px;
+  gap: 45px;
+}
+.update__profile__body .data__info-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+.update__profile__body .data__info-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+.update__profile__body .input__element {
+  display: flex;
+  gap: 7px;
+  flex-direction: column;
+}
+.update__profile__body .input__element input, .update__profile__body .input__element select {
+  background-color: #FCFCFC;
+  background-image: url("../img/svg/mdi_user.svg");
+  background-repeat: no-repeat;
+  background-position: 15px center;
+  background-size: 25px;
+  padding-left: 45px;
+  border-radius: 8px;
+  width: 100%;
+  height: 55px;
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.08);
+}
+.update__profile__body .input__element textarea {
+  resize: none;
+  background-color: #FCFCFC;
+  width: 100%;
+  height: 107px;
+  padding: 11px;
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.08);
+}
+.update__profile__body .more__info {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+  margin-bottom: 25px;
+}
+
 .header__courses {
   display: flex;
   flex-direction: column;
@@ -1180,7 +1252,7 @@ p {
 .course__order__body {
   display: flex;
   width: 100%;
-  margin-top: 48px;
+  margin-top: 8px;
 }
 .course__order__body h1 {
   font-size: 28px;
@@ -1198,45 +1270,8 @@ p {
   flex-direction: column;
   width: 30%;
   gap: 15px;
-  height: 55%;
-  top: 100px;
-}
-.course__order__body-main .order__list .order__block {
-  display: flex;
-  background-color: #1D212F;
-  height: 100%;
-  flex-direction: column;
-  position: relative;
-  padding: 15px;
-  width: 100%;
-  border-radius: 15px;
-}
-.course__order__body-main .order__list .order__block h1 {
-  font-size: 29px;
-  margin: 15px;
-  margin-right: auto;
-  color: #FFFFFF;
-}
-.course__order__body-main .order__list .order__block .order__form {
-  display: flex;
-  height: 100%;
-  align-items: center;
-  justify-content: center;
-  gap: 45px;
-  flex-direction: column;
-}
-.course__order__body-main .order__list .order__block .order__form input {
-  width: 100%;
-  padding: 13px;
-  border-radius: 9px;
-  background-color: #FFFFFF;
-}
-.course__order__body-main .order__list .order__block .order__form input[name=phone_number] {
-  background-image: url("../img/rus.png");
-  background-repeat: no-repeat;
-  background-position: left center;
-  background-size: 35px;
-  padding-left: 45px;
+  height: 58%;
+  top: 44px;
 }
 .course__order__body-main .order__checked {
   display: flex;
@@ -1480,4 +1515,63 @@ p {
 .options__event input[type=checkbox]:checked ~ .option__selected {
   border-color: #FD7401 !important;
   color: #FD7401;
+}
+
+.order__block {
+  display: flex;
+  background-color: #1D212F;
+  height: 100%;
+  flex-direction: column;
+  position: relative;
+  gap: 15px;
+  padding: 15px;
+  width: 100%;
+  border-radius: 15px;
+}
+.order__block h1 {
+  font-size: 21px;
+  margin: 15px;
+  margin-right: auto;
+  color: #FFFFFF;
+}
+.order__block .order__form {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  flex-direction: column;
+}
+.order__block .order__form input {
+  width: 100%;
+  padding: 9px;
+  border-radius: 9px;
+  background-color: #FFFFFF;
+}
+.order__block .order__form input[name=phone_number] {
+  background-image: url("../img/rus.png");
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 35px;
+  padding-left: 45px;
+}
+.order__block .order__form button {
+  font-size: 14px;
+}
+.order__block .order__item {
+  display: flex;
+  color: #FFFFFF;
+  font-size: 13px;
+  position: relative;
+  justify-content: space-between;
+}
+
+#valueAll {
+  font-size: 21px;
+}
+
+#valueBox {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
 }/*# sourceMappingURL=main.css.map */

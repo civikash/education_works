@@ -19,7 +19,7 @@
         <div class="header__nav">
             <nav class="nav">
                 <ul class="nav__list">
-                    {% if request.user %}
+                    {% if user.is_authenticated %}
                     <li><a class="orange" href="{% url 'account:profile' %}">{{ request.user.email }}</a></li>
                     {% else %}
                     <li><a class="button orange" href="{% url 'account:login' %}">Войти</a></li>
@@ -39,6 +39,8 @@
         <div class="header_right">
             <h1>Учитесь каждый день 
                 любым новым навыкам онлайн с лучшими преподавателями.</h1>
+                <form method="POST">
+                    {% csrf_token %}
                 <div class="header__search">
                     <div class="header__search-row">
                         <svg width="21" height="21" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -47,12 +49,17 @@
                             </g>
                             </svg>
                             
-                        <span>Вставьте название</span>
+                        <input name="course_name" placeholder="Вставьте название">
                         <span>|</span>
-                        <span>Категории</span>
+                        <select name="select_course">
+                            {% for direction in directions %}
+                                <option value="{{ direction.id }}">{{ direction }}</option>
+                            {% endfor %}
+                        </select>
                         <button>Искать</button>
                     </div>
                 </div>
+            </form>
             </div>
       </div>
     </div>

@@ -13,12 +13,71 @@
 <body>
     <div class="course__order__body">
         <div class="container">
-            <h1>Для продолжения регистрации заявки заполните информацию ниже и нажмите
-                кнопку "Продолжить"</h1>
                 <form method="POST">
                     {% csrf_token %}
             <div class="course__order__body-main">
                 <div class="order__list">
+                    <div class="order__block">
+                        <div class="order__item">
+                            <span>Направление</span>
+                            <span id="packageSelect">Программа</span>
+                        </div>
+                        <div class="order__item">
+                            <span>Программа</span>
+                            <span id="programInput">Программа</span>
+                        </div>
+                        <div class="order__item">
+                            <span>Специализация</span>
+                            <span id="specialItem">Специализация</span>
+                        </div>
+                        <div class="order__item">
+                            <span>Тип обучения</span>
+                            <span id="individEducation">Тип обучения</span>
+                        </div>
+                        <div class="order__item">
+                            <svg width="917" height="107" viewBox="0 0 1417 107" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0.5 107C8.44497 107 16.3121 105.707 23.6523 103.194C30.9925 100.681 37.662 96.9983 43.28 92.3553C48.8979 87.7124 53.3543 82.2004 56.3947 76.1342C59.4351 70.0679 61 63.5661 61 57C61 50.4339 59.4351 43.9321 56.3947 37.8658C53.3543 31.7995 48.8979 26.2876 43.28 21.6447C37.662 17.0017 30.9925 13.3188 23.6523 10.806C16.3121 8.29329 8.44497 7 0.499996 7L0.5 57L0.5 107Z" fill="#FD7401"/>
+                                <path d="M1416.5 0C1408.56 0 1400.69 1.29329 1393.35 3.80602C1386.01 6.31876 1379.34 10.0017 1373.72 14.6447C1368.1 19.2876 1363.65 24.7996 1360.61 30.8658C1357.56 36.9321 1356 43.4339 1356 50C1356 56.5661 1357.56 63.0679 1360.61 69.1342C1363.65 75.2005 1368.1 80.7124 1373.72 85.3553C1379.34 89.9983 1386.01 93.6812 1393.35 96.194C1400.69 98.7067 1408.56 100 1416.5 100L1416.5 50V0Z" fill="#FD7401"/>
+                                <line x1="65" y1="47.5" x2="1356" y2="47.5" stroke="#FD7401" stroke-width="5" stroke-dasharray="10 10"/>
+                                </svg>
+                        </div>
+                        <div class="order__item">
+                            <span>Пакет обучения</span>
+                            <span id="packageTitle">Тип обучения</span>
+                        </div>
+                        <div class="order__item">
+                            <span>Знания на выходе</span>
+                            <span id="packageLevel">Тип обучения</span>
+                        </div>
+                        <div class="order__item">
+                            <span>Срок обучения (без учёта темпа)</span>
+                            <span id="packageTime">Тип обучения</span>
+                        </div>
+                        <div class="order__item">
+                            <span>Трудоустройство</span>
+                            <span id="packageWork">Тип обучения</span>
+                        </div>
+                        <div class="order__item">
+                            <span>Диплом</span>
+                            <span id="packageDiplom">Через 12 месяцев</span>
+                        </div>
+                        <div class="order__item">
+                            <span>Темп обучения</span>
+                            <span id="tempName">Стандарт</span>
+                        </div>
+                        <div class="order__item">
+                            <span>Диплом установленного образца</span>
+                            <span id="typeEducationDiplom">Включено в пакет</span>
+                        </div>
+                        <div class="order__item">
+                            <span>Гарантия трудоустройства</span>
+                            <span id="typeEducationPackageGarant">Включено в пакет</span>
+                        </div>
+                        <div id="valueBox" class="order__item">
+                            <span>Итого</span>
+                            <span id="valueAll"><span id="valueAllTotal">0.00</span></span>
+                        </div>
+                    </div> 
                     <div class="order__block">
                         <h1>Оставьте заявку</h1>
                         <div class="order__form">
@@ -27,9 +86,7 @@
                             <input required type="text" name="phone_number" maxlength="10" pattern="[0-9]{10,13}" placeholder="985352-00-14">
                             <button class="button orange" type="submit">Сохранить изменения</button>
                         </div>
-                    </div>
-                    
-                    
+                    </div> 
                 </div>
                 <div class="order__checked-package">
                     <div class="order__checked">
@@ -89,31 +146,30 @@
                     {% for package in packages %}
                     
                     <div class="order__selected">
-                        <input type="radio" name="package" value="{{ package.id }}" required>
+                        <input type="radio" id="package_{{ package.id }}" name="package" data-package-id="{{ package.id }}" value="{{ package.id }}" required>
                         <div class="package__block">
-
                             <h1>{{ package.name }}</h1>
                             <div class="package__block-row">
                                 <div class="package__block-column">
                                     <span>Знания на выходе:</span>
-                                    <span>{{ package.level }}</span>
+                                    <span id="packageLevelInput_{{ package.id }}">{{ package.level }}</span>
                                 </div>
                                 <div class="package__block-column">
                                     <span>Срок обучения:</span>
-                                    <span>{{ package.time }}</span>
+                                    <span id="packageTime_{{ package.id }}">{{ package.time }}</span>
                                 </div>
                             </div>
                             <div class="package__block-row">
                                 <div class="package__block-column">
                                     <span>Диплом:</span>
-                                    <span>{{ package.diplom }}</span>
+                                    <span id="packageDiplom_{{ package.id }}">{{ package.diplom }}</span>
                                 </div>
                                 <div class="package__block-column">
                                     <span>Трудоустройство:</span>
-                                    <span>Через 9 месяцев</span>
+                                    <span id="packageWorking_{{ package.id }}">Через 9 месяцев</span>
                                 </div>
                                 <div class="package__block-column cost_sz">
-                                    <span>от {{ package.price }} руб/мес</span>
+                                    <span id="packagePrice_{{ package.id }}">{{ package.price }}</span>
                                     <span>рассрочка до 36 месяцев</span>
                                 </div>
                             </div>
@@ -124,7 +180,7 @@
                         <h1>Выберите темп обучения</h1>
                         {% for temp in temps %}
                         <div class="temps__event">
-                            <input type="radio" name="temp" value="{{ temp.id }}">
+                            <input type="radio" id="temp_{{ temp.id }}" name="temp" data-temp-id="{{ temp.id }}" value="{{ temp.id }}">
                         <div class="temp__selected">
                             <img src="{% if temp.name == 'Интенсивный' %}
                             {% static 'img/surf.png'%}{% elif temp.name == 'Стандартный' %}
@@ -136,7 +192,7 @@
                                 <span>Темп обучения, который подходит большинству студентов и позволяет
                                     комфортно совмещать учебу, работу и отдых.</span>
                                 <div class="temp__cost">
-                                    <span>{{ temp.price }} {% if temp.price != 'Бесплатно' %}руб/мес. {% endif %}</span>
+                                    <span id="priceTemp_{{ temp.id }}">{{ temp.price }}{% if temp.price != 'Бесплатно' %}{% endif %}</span>
                                 </div>
                             </div>
                         </div>
@@ -185,7 +241,7 @@
                                     </defs>
                                 </svg>
                             </div>
-                            <span class="option__cost">+ {{ option.price }}</span>
+                            <span id="option_{{ option.id }}" class="option__cost">{{ option.price }}</span>
                         </div>
                         </div>
                         {% endfor %}
@@ -214,5 +270,5 @@
     </div>
     </div>
 </body>
-
+<script src="{% static 'js/calc.js' %}"></script>
 </html>

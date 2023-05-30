@@ -48,7 +48,7 @@
             background-color: $orange;
             width: 455px;
             position: absolute;
-            top: 196px;
+            top: 222px;
             left: 0;
             height: 486px;
             border-radius: 20px 20px 0px 0px;
@@ -98,6 +98,10 @@
                 width: 150px;
                 height: 55px;
                 border-radius: 4px;
+            }
+
+            select {
+              color: $gray;
             }
         }
       }

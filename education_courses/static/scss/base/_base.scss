@@ -41,4 +41,8 @@ p {
         background-color: $orange;
         color: $white;
     }
+    &.dark {
+      background-color: $dark;
+      color: $white;
+    }
 }

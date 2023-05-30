@@ -1,0 +1,128 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+    <title>Редактирование профиля</title>
+</head>
+
+<body>
+    <header class="header__courses">
+        <div class="header__courses__top">
+            <div class="container">
+                <div class="header__top-row">
+                    <a>
+                        <h3>Education Courses</h3>
+                    </a>
+                    <div class="header__nav">
+                        <nav class="nav">
+                            <ul class="nav__list">
+                                <li><a href="{% url 'landing:index' %}">Главная</a></li>
+                                <li><a href="#!">Контакты</a></li>
+                                <li><a href="#!">Отзывы</a></li>
+                                <li><a href="#!">Подписаться</a></li>
+                                <li><a href="{% url 'courses:courses-all' %}">Курсы</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="header__nav">
+                        <nav class="nav">
+                            <ul class="nav__list">
+                                {% if request.user %}
+                                <li><a class="orange" href="{% url 'account:profile' %}">{{ request.user.email }}</a>
+                                </li>
+                                {% else %}
+                                <li><a class="button orange" href="{% url 'account:login' %}">Войти</a></li>
+                                {% endif %}
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="update__profile__body">
+        <div class="container">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="data__info">
+                    <div class="data__info-left">
+                        <div class="input__element">
+                            <label>Имя</label>
+                            <input name="name" type="text" value="{{ user.first_name }}">
+                        </div>
+                        <div class="input__element">
+                            <label>Фамилия</label>
+                            <input name="last_name" type="text" value="{{ user.last_name }}">
+                        </div>
+                        <div class="input__element">
+                            <label>Отчество</label>
+                            <input name="patron" type="text" value="{{ user.patronymic }}">
+                        </div>
+                        <div class="input__element">
+                            <label>Пол</label>
+                            <select name="gender">
+                                {% for choice in gender_choices %}
+                                <option value="{{ choice.0 }}">{{ choice.1 }}</option>
+                              {% endfor %}
+                            </select>
+                        </div>
+                        <div class="input__element">
+                            <label>Дата рождения</label>
+                            <input name="birthdata" type="date" value="{{ user.birthday }}">
+                        </div>
+                        <div class="input__element">
+                            <label>Часовой пояс</label>
+                            <select name="timezone">
+                                {% for tz in time_zones %}
+                                <option value="{{ tz }}">{{ tz }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="data__info-right">
+                        <div class="input__element">
+                            <label>Телефон</label>
+                            <input name="phone_number" type="tel" value="{{ user.number }}">
+                        </div>
+                        <div class="input__element">
+                            <label>Email</label>
+                            <input name="email" type="text" value="{{ user.email }}">
+                        </div>
+                        <div class="input__element">
+                            <label>Страна</label>
+                            <input name="country" type="text" value="{{ user.country }}">
+                        </div>
+                        <div class="input__element">
+                            <label>Город</label>
+                            <input name="city" type="text" value="{{ user.city }}">
+                        </div>
+                    </div>
+                </div>
+                <div class="more__info">
+                <div class="input__element">
+                    <label>О себе</label>
+                    <textarea name="bio">
+                        {{ user.myself }}
+                    </textarea>
+                </div>
+                <div class="input__element">
+                    <label>Интересы</label>
+                    <textarea name="interests">
+                        {{ user.hobby }}
+                    </textarea>
+                </div>
+            </div>
+                <div class="button__panel">
+                    <button class="button dark" type="submit">Сохранить</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

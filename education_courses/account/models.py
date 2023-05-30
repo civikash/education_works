@@ -3,6 +3,7 @@ from django.contrib.auth.models import AbstractUser, Permission, Group
 import uuid
 from django.utils.translation import gettext_lazy as _
 from account.managers import AccountManager
+import pytz
 
 
 class Role(models.Model):
@@ -32,7 +33,8 @@ class Account(AbstractUser):
     email = models.EmailField(_('Адрес электронной почты'), unique=True)
     patronymic = models.CharField(_("Отчество"), max_length=60, null=True, blank=True)
     birthday = models.DateField(_("Дата рождения"), auto_now=False, auto_now_add=False, null=True, blank=True)
-    time = models.TimeField(_("Часовой пояс"), auto_now=False, auto_now_add=False, null=True, blank=True)
+    time_zone_choices = [(tz, tz) for tz in pytz.all_timezones]
+    time = models.CharField(_("Часовой пояс"), max_length=50, choices=time_zone_choices, null=True, blank=True)
     myself = models.TextField(_("О себе")) 
     hobby = models.TextField(_("Интересы"))
     number = models.IntegerField(_("Телефон"), null=True, blank=True)

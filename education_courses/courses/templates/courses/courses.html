@@ -77,7 +77,7 @@
         <div class="courses__body__page-left">
             <div class="filter__box">
                 <h1>Поиск по программам</h1>
-                <form method="POST">
+                <form method="POST" action="{% url 'courses:courses-all' %}">
                     {% csrf_token %}
                     <input class="search" name="search" type="text" placeholder="Поиск">
                     <button class="button orange" type="submit">Поиск</button>

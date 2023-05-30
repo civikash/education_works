@@ -1,7 +1,7 @@
 .course__order__body {
     display: flex;
     width: 100%;
-    margin-top: 48px;
+    margin-top: 8px;
     h1 {
         font-size: 28px;
         font-weight: 500;
@@ -19,50 +19,8 @@
             flex-direction: column;
             width: 30%;
             gap: 15px;
-            height: 55%;
-            top: 100px;
-
-
-            .order__block {
-                display: flex;
-                background-color: $dark;
-                height: 100%;
-                flex-direction: column;
-                position: relative;
-                padding: 15px;
-                width: 100%;
-                border-radius: 15px;
-                h1 {
-                    font-size: 29px;
-                    margin: 15px;
-                    margin-right: auto;
-                    color: $white;
-                }
-
-                .order__form {
-                    display: flex;
-                    height: 100%;
-                    align-items: center;
-                    justify-content: center;
-                    gap: 45px;
-                    flex-direction: column;
-
-                    input {
-                        width: 100%;
-                        padding: 13px;
-                        border-radius: 9px;
-                        background-color: $white;
-                    }
-
-                    input[name="phone_number"] {
-                        background-image: url('../img/rus.png');
-                        background-repeat: no-repeat; 
-                        background-position: left center; 
-                        background-size: 35px;
-                        padding-left: 45px;
-                    }
-                }
-            }
+            height: 58%;
+            top: 44px;
         }
 
         .order__checked {
@@ -346,4 +304,70 @@
         border-color: $orange !important;
         color: $orange;
     }
+}
+
+.order__block {
+    display: flex;
+    background-color: $dark;
+    height: 100%;
+    flex-direction: column;
+    position: relative;
+    gap: 15px;
+    padding: 15px;
+    width: 100%;
+    border-radius: 15px;
+    h1 {
+        font-size: 21px;
+        margin: 15px;
+        margin-right: auto;
+        color: $white;
+    }
+
+    .order__form {
+        display: flex;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        gap: 25px;
+        flex-direction: column;
+
+        input {
+            width: 100%;
+            padding: 9px;
+            border-radius: 9px;
+            background-color: $white;
+        }
+
+        input[name="phone_number"] {
+            background-image: url('../img/rus.png');
+            background-repeat: no-repeat; 
+            background-position: left center; 
+            background-size: 35px;
+            padding-left: 45px;
+        }
+
+        button {
+            font-size: 14px;
+        }
+    }
+
+    .order__item {
+        display: flex;
+        color: $white;
+        font-size: 13px;
+        position: relative;
+        justify-content: space-between;
+    }
+
+
+}
+
+#valueAll {
+    font-size: 21px;
+}
+
+#valueBox {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
 }
