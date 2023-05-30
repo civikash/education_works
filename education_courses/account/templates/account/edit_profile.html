@@ -67,20 +67,20 @@
                             <label>Пол</label>
                             <select name="gender">
                                 {% for choice in gender_choices %}
-                                <option value="{{ choice.0 }}">{{ choice.1 }}</option>
+                                <option value="{{ choice.0 }}" {% if choice.0 == user.gender %}selected{% endif %}>{{ choice.1 }}</option>
                               {% endfor %}
                             </select>
                         </div>
                         <div class="input__element">
                             <label>Дата рождения</label>
-                            <input name="birthdata" type="date" value="{{ user.birthday }}">
+                            <input name="birthdate" type="text" value="{{ user.birthday|date:'d.m.Y' }}">
                         </div>
                         <div class="input__element">
                             <label>Часовой пояс</label>
                             <select name="timezone">
                                 {% for tz in time_zones %}
-                                <option value="{{ tz }}">{{ tz }}</option>
-                                {% endfor %}
+                                <option value="{{ tz }}" {% if tz == user.time %}selected{% endif %}>{{ tz }}</option>
+                              {% endfor %}
                             </select>
                         </div>
                     </div>

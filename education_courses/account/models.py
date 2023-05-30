@@ -24,7 +24,7 @@ class Account(AbstractUser):
 
     GENDER = [
         (M, _('Мужчина')),
-        (M, _('Женщина')),
+        (F, _('Женщина')),
     ]
 
     id = models.AutoField(primary_key=True)

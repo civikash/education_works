@@ -23,7 +23,7 @@ def update_profile(request):
         last_name = request.POST.get('last_name')
         patron = request.POST.get('patron')
         gender = request.POST.get('gender')
-        birthdata = request.POST.get('birthdata')
+        birthdata = request.POST.get('birthdate')
         timezone = request.POST.get('timezone')
         phone_number = request.POST.get('phone_number')
         email = request.POST.get('email')
@@ -42,7 +42,7 @@ def update_profile(request):
         user.number = phone_number or None
         user.country = country
         user.city = city
-        user.gender = gender
+        user.gender = str(gender)
         user.last_name = last_name
         user.first_name = name
         user.save()
