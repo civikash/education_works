@@ -23,18 +23,6 @@
                             <span id="packageSelect">Программа</span>
                         </div>
                         <div class="order__item">
-                            <span>Программа</span>
-                            <span id="programInput">Программа</span>
-                        </div>
-                        <div class="order__item">
-                            <span>Специализация</span>
-                            <span id="specialItem">Специализация</span>
-                        </div>
-                        <div class="order__item">
-                            <span>Тип обучения</span>
-                            <span id="individEducation">Тип обучения</span>
-                        </div>
-                        <div class="order__item">
                             <svg width="917" height="107" viewBox="0 0 1417 107" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M0.5 107C8.44497 107 16.3121 105.707 23.6523 103.194C30.9925 100.681 37.662 96.9983 43.28 92.3553C48.8979 87.7124 53.3543 82.2004 56.3947 76.1342C59.4351 70.0679 61 63.5661 61 57C61 50.4339 59.4351 43.9321 56.3947 37.8658C53.3543 31.7995 48.8979 26.2876 43.28 21.6447C37.662 17.0017 30.9925 13.3188 23.6523 10.806C16.3121 8.29329 8.44497 7 0.499996 7L0.5 57L0.5 107Z" fill="#FD7401"/>
                                 <path d="M1416.5 0C1408.56 0 1400.69 1.29329 1393.35 3.80602C1386.01 6.31876 1379.34 10.0017 1373.72 14.6447C1368.1 19.2876 1363.65 24.7996 1360.61 30.8658C1357.56 36.9321 1356 43.4339 1356 50C1356 56.5661 1357.56 63.0679 1360.61 69.1342C1363.65 75.2005 1368.1 80.7124 1373.72 85.3553C1379.34 89.9983 1386.01 93.6812 1393.35 96.194C1400.69 98.7067 1408.56 100 1416.5 100L1416.5 50V0Z" fill="#FD7401"/>
@@ -223,7 +211,7 @@
                         <div class="option__row">
                         {% for option in options %}
                         <div class="options__event">
-                            <input type="checkbox" name="option" value="{{ option.id }}">
+                            <input type="checkbox" id="option_{{ option.id }}" name="option" value="{{ option.id }}">
                         <div class="option__selected">
                             <div class="option__row">
                             <h1>{{ option.name }}</h1>

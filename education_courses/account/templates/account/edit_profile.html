@@ -73,7 +73,7 @@
                         </div>
                         <div class="input__element">
                             <label>Дата рождения</label>
-                            <input name="birthdate" type="text" value="{{ user.birthday|date:'d.m.Y' }}">
+                            <input id="birthdateInput" name="birthdate" type="text" value="{{ user.birthday|date:'d.m.Y' }}">
                         </div>
                         <div class="input__element">
                             <label>Часовой пояс</label>
@@ -87,7 +87,7 @@
                     <div class="data__info-right">
                         <div class="input__element">
                             <label>Телефон</label>
-                            <input name="phone_number" type="tel" value="{{ user.number }}">
+                            <input name="phone_number" type="text" value="{{ user.number }}">
                         </div>
                         <div class="input__element">
                             <label>Email</label>
@@ -124,5 +124,20 @@
         </div>
     </div>
 </body>
-
+<script>
+    // Получение ссылки на элемент ввода даты
+    const birthdateInput = document.getElementById('birthdateInput');
+  
+    // Получение значения из атрибута value
+    const enteredDate = birthdateInput.value;
+  
+    // Проверка, соответствует ли введенная дата формату "дд.мм.гггг"
+    const isValidFormat = /^\d{2}\.\d{2}\.\d{4}$/.test(enteredDate);
+  
+    if (isValidFormat) {
+      // Форматирование введенной даты в формат "гггг-мм-дд" для сохранения в базе данных
+      const formattedDate = enteredDate.split('.').reverse().join('-');
+      birthdateInput.value = formattedDate;
+    }
+  </script>
 </html>

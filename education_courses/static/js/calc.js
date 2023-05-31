@@ -17,6 +17,62 @@ const optionCheckbox = document.querySelector('input[name="option"]');
 
 let selectedTempPriceIdInput;
 let selectedPackagePriceIdInput;
+const selectedCheckboxes = [];
+
+
+// Получение ссылок на элементы
+const checkboxes = document.querySelectorAll('.options__event input[type="checkbox"]');
+const orderList = document.querySelector('.order__list .order__block');
+
+checkboxes.forEach(function (checkbox) {
+    checkbox.addEventListener('change', function () {
+      // Получение ссылок на элементы "h1" и "span" из соответствующего блока "option__selected"
+      const optionRow = this.parentNode.querySelector('.option__selected');
+      const optionName = optionRow.querySelector('h1');
+      const optionPrice = optionRow.querySelector('.option__cost');
+  
+      // Проверка, выбран ли чекбокс
+      if (this.checked) {
+        // Создание нового элемента order__item
+        const orderItem = document.createElement('div');
+        orderItem.classList.add('order__item');
+  
+        // Создание элементов span
+        const span1 = document.createElement('span');
+        span1.textContent = optionName.textContent;
+  
+        const span2 = document.createElement('span');
+        span2.id = `packageSelect_${this.value}`;
+        span2.textContent = optionPrice.textContent;
+  
+        // Добавление элементов span в элемент order__item
+        orderItem.appendChild(span1);
+        orderItem.appendChild(span2);
+  
+        // Добавление элемента order__item в orderList
+        orderList.appendChild(orderItem);
+  
+        // Добавляем выбранный чекбокс в массив выбранных чекбоксов
+        selectedCheckboxes.push(this);
+  
+        // Передаем выбранные чекбоксы в функцию updateTotalValue
+        updateTotalValue(selectedTempPriceIdInput, selectedPackagePriceIdInput, selectedCheckboxes);
+      } else {
+        // Поиск и удаление элемента order__item с соответствующим id
+        const orderItemToRemove = document.getElementById(`packageSelect_${this.value}`).closest('.order__item');
+        orderItemToRemove.remove();
+  
+        // Удаляем отмененный чекбокс из массива выбранных чекбоксов
+        const checkboxIndex = selectedCheckboxes.indexOf(this);
+        if (checkboxIndex > -1) {
+          selectedCheckboxes.splice(checkboxIndex, 1);
+        }
+  
+        // Передаем обновленный массив выбранных чекбоксов в функцию updateTotalValue
+        updateTotalValue(selectedTempPriceIdInput, selectedPackagePriceIdInput, selectedCheckboxes);
+      }
+    });
+  });
 
 
 tempInputs.forEach(function(input) {
@@ -48,7 +104,7 @@ tempInputs.forEach(function(input) {
 
             console.log(selectedTempPriceIdInput);
             
-            updateTotalValue(selectedTempPriceIdInput, selectedPackagePriceIdInput);
+            updateTotalValue(selectedTempPriceIdInput, selectedPackagePriceIdInput, selectedCheckboxes);
 
             // // Проверяем, найдены ли элементы
             // if (selectedPackageLevelInput) {
@@ -103,7 +159,7 @@ packageInputs.forEach(function(input) {
             selectedPackagePriceIdInput = document.getElementById(selectedPackagePriceId);
 
             console.log(selectedPackageWorkingIdInput);
-            updateTotalValue(selectedTempPriceIdInput, selectedPackagePriceIdInput);
+            updateTotalValue(selectedTempPriceIdInput, selectedPackagePriceIdInput, selectedCheckboxes);
 
             // Проверяем, найдены ли элементы
             if (selectedPackageLevelInput) {
@@ -132,8 +188,9 @@ packageInputs.forEach(function(input) {
 });
 
 
-function updateTotalValue(selectedTempPriceIdInput, selectedPackagePriceIdInput) {
-    if (selectedPackagePriceIdInput && selectedTempPriceIdInput) {
+function updateTotalValue(selectedTempPriceIdInput, selectedPackagePriceIdInput, selectedCheckboxes) {
+    // Проверяем, есть ли хотя бы одно из значений
+    if (selectedPackagePriceIdInput || selectedCheckboxes.length > 0 || selectedTempPriceIdInput) {
       // Получаем значения из элементов
       const selectedPackagePriceIdInputValue = parseFloat(selectedPackagePriceIdInput.textContent);
       const selectedTempPriceIdInputValue = (selectedTempPriceIdInput.textContent === 'Бесплатно') ? 0 : parseFloat(selectedTempPriceIdInput.textContent);
@@ -145,10 +202,25 @@ function updateTotalValue(selectedTempPriceIdInput, selectedPackagePriceIdInput)
       }
   
       // Вычисляем сумму
-      const totalValue = selectedPackagePriceIdInputValue + selectedTempPriceIdInputValue;
-      console.log(totalValue)
+      let totalValue = selectedPackagePriceIdInputValue + selectedTempPriceIdInputValue;
+  
+      // Обрабатываем каждый выбранный чекбокс
+      selectedCheckboxes.forEach(function (checkbox) {
+        const optionRow = checkbox.parentNode.querySelector('.option__selected');
+        const optionPrice = optionRow.querySelector('.option__cost');
+        const optionPriceValue = parseFloat(optionPrice.textContent);
+        if (!isNaN(optionPriceValue)) {
+          totalValue += optionPriceValue;
+        }
+      });
+  
+      console.log(totalValue);
   
       // Вставляем сумму в элемент #valueAll
       valueAll.textContent = totalValue.toFixed(2); // Округляем до двух знаков после запятой
     }
   }
+  
+  
+  
+  

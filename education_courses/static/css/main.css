@@ -1534,6 +1534,9 @@ p {
   margin-right: auto;
   color: #FFFFFF;
 }
+.order__block span {
+  font-size: 11px !important;
+}
 .order__block .order__form {
   display: flex;
   height: 100%;
