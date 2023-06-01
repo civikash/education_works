@@ -41,6 +41,10 @@ def update_profile(request):
         except ValueError:
             messages.error(request, 'Некорректный формат даты рождения. Используйте формат YYYY-MM-DD')
             return redirect('account:profile')
+        
+        if len(phone_number) != 11:
+            messages.error(request, 'Некорректная длина номера телефона. Должно быть 11 символов')
+            return redirect('account:profile')
 
         user = request.user
         user.email = email
