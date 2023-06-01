@@ -17,6 +17,7 @@ class Directions(models.Model):
     ]
 
     name = models.CharField(_("Языки программирования"), choices=PROGRAM_LANG, max_length=50)
+    image = models.ImageField(_("Изображение"), upload_to='static/img/directions_images/')
 
     def __str__(self):
         return self.name
@@ -195,6 +196,20 @@ class LangueProg(models.Model):
 
     def __str__(self):
         return self.name
+    
+class Target(models.Model):
+    name = models.CharField(_("Цели"), max_length=90)
+
+    def __str__(self):
+        return self.name
+    
+
+class TypeEducation(models.Model):
+    name = models.CharField(_("Тип обучения"), max_length=90)
+    description = models.TextField(_("Описание"))
+
+    def __str__(self):
+        return self.name
 
 class Course(models.Model):
     uid = models.UUIDField(unique=True, editable=False, default=uuid.uuid4)
@@ -215,9 +230,11 @@ class Order(models.Model):
     temp = models.ForeignKey(Temp, verbose_name=_("Темп обучения"), on_delete=models.CASCADE, null=True)
     name = models.CharField(_("Имя фамилия"), max_length=250)
     email = models.CharField(_("Email"), max_length=15)
-    option = models.ForeignKey(Option, verbose_name=_("Опции"), on_delete=models.CASCADE, null=True)
+    type_education = models.ForeignKey(TypeEducation, verbose_name=_("Тип обучения"), on_delete=models.CASCADE, null=True)
+    option = models.ManyToManyField(Option, verbose_name=_("Опции"))
+    target = models.ManyToManyField(Target, verbose_name=_("Цели"))
     phone_number = models.CharField(max_length=13, unique=True)
-    value = models.IntegerField(_("Сумма"), null=True)
+    value = models.FloatField(_("Сумма"), null=True)
 
     def save(self, *args, **kwargs):
         # Проверка и обработка номера телефона перед сохранением

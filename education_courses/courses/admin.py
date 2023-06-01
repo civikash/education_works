@@ -1,5 +1,13 @@
 from django.contrib import admin
-from courses.models import Course, Package, Temp, Option, LangueProg, Order, Program, Special, Directions, Devices
+from courses.models import Course, TypeEducation, Package, Target, Temp, Option, LangueProg, Order, Program, Special, Directions, Devices
+
+@admin.register(TypeEducation)
+class AccountAdmin(admin.ModelAdmin):
+    pass
+
+@admin.register(Target)
+class AccountAdmin(admin.ModelAdmin):
+    pass
 
 @admin.register(Course)
 class AccountAdmin(admin.ModelAdmin):

@@ -724,6 +724,7 @@ p {
   align-items: center;
   justify-content: center;
   margin-top: 15px;
+  gap: 35px;
 }
 .profile__body .profile__left {
   display: flex;
@@ -738,11 +739,16 @@ p {
   width: -moz-fit-content;
   width: fit-content;
   height: 40px;
+  width: 100%;
   font-size: 13px;
 }
 .profile__body .profile__left .button.dark {
   color: #FFFFFF;
   background-color: #1D212F;
+}
+.profile__body .profile__left .button.red {
+  color: #FFFFFF;
+  background-color: red;
 }
 .profile__body .profile__right {
   display: flex;
@@ -1493,6 +1499,30 @@ p {
   border-radius: 20px;
   width: 100%;
   padding: 9px;
+}
+.opinion__footer .target__space {
+  display: flex;
+  padding: 15px;
+  margin-top: 15px;
+  border-radius: 10px;
+  gap: 15px;
+  flex-wrap: wrap;
+  border: 1px solid #1D212F;
+}
+.opinion__footer .target__space .options__event {
+  display: flex;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.opinion__footer .target__space .option__selected {
+  margin: 0;
+  height: auto;
+  align-items: center;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.opinion__footer .target__space .option__selected h1 {
+  font-size: 14px !important;
 }
 
 .options__event {

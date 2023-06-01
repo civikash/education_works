@@ -64,6 +64,7 @@
                         <div id="valueBox" class="order__item">
                             <span>Итого</span>
                             <span id="valueAll"><span id="valueAllTotal">0.00</span></span>
+                            <input type="hidden" name="value_all_total" id="valueAllInput">
                         </div>
                     </div> 
                     <div class="order__block">
@@ -103,7 +104,7 @@
                             <div class="direction__selected">
                             <input type="checkbox" name="directions" value="{{ direction.id }}"> 
                             <div class="selected checkbox__elements">
-                                <img src="{% static 'img/img_hend.png'%}" alt="">
+                                <img src="{{ direction.image.url }}" alt="Изображение">
                                 <span>{{ direction.name }}</span>
                             </div>
                         </div>
@@ -236,11 +237,34 @@
                             </div> 
                             <div class="opinion__footer">
                                 <h1>Тип обучения</h1>
-                                <input type="text" placeholder="В группе в режиме реального времени (Стандартный)">
+                                <div class="order__checked">
+                                    {% for typeEducation in typeEducation %}
+                                    <div class="temps__event">
+                                        <input type="radio" id="typeEducation_{{ typeEducation.id }}" name="typeEducation" data-temp-id="{{ typeEducation.id }}" value="{{ typeEducation.id }}">
+                                    <div class="temp__selected">
+                                        <div class="temp__block">
+                                            <h1>{{ typeEducation.name }}</h1>
+                                            <span>{{ typeEducation.description }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                                </div>
                             </div>
                             <div class="opinion__footer">
                                 <h1>Основные цели обучения</h1>
-                                <input type="text" placeholder="Выберите основные цели обучения">
+                                <div class="target__space">
+                                {% for target in targets %}
+                                <div class="options__event">
+                                    <input type="checkbox" id="target_{{ target.id }}" name="target" value="{{ target.id }}">
+                                <div class="option__selected">
+                                    <div class="option__row">
+                                    <h1>{{ target.name }}</h1>
+                                    </div>
+                                </div>
+                                </div>
+                                {% endfor %}
+                            </div>
                             </div>
                 </div>
             </div> 
@@ -258,5 +282,8 @@
     </div>
     </div>
 </body>
+<script>
+
+  </script>
 <script src="{% static 'js/calc.js' %}"></script>
 </html>

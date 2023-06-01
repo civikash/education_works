@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from courses.models import Course, Order, Directions, Temp, Option, Package
+from courses.models import Course, Order, Directions, TypeEducation, Temp, Option, Package, Target
 import uuid
 from django.shortcuts import get_object_or_404
 
@@ -91,14 +91,19 @@ def course_detail(request, uid):
 def course_order(request):
     if request.method == 'POST':
         directions_ids = request.POST.getlist('directions')
+        typeEducation = request.POST.getlist('typeEducation')
         package_ids = request.POST.getlist('package')
         temp_id = request.POST.getlist('temp')
         name = request.POST.get('name')
         email = request.POST.get('email')
         option_ids = request.POST.getlist('option')
         phone_number = request.POST.get('phone_number')
+        targets_ids = request.POST.getlist('target')
+        value = request.POST.get('value_all_total')
 
         directions = Directions.objects.filter(id__in=directions_ids)
+        education = TypeEducation.objects.filter(id__in=typeEducation)
+        targets_f = Target.objects.filter(id__in=targets_ids)
         package = Package.objects.filter(id__in=package_ids)
         temp = Temp.objects.filter(id__in=temp_id)
         option = Option.objects.filter(id__in=option_ids)
@@ -106,23 +111,28 @@ def course_order(request):
 
 
         order = Order(
-                user = request.user,
-                directions=directions.first(),
-                package=package.first(),
-                temp=temp.first(),
-                name=name,
-                email=email,
-                option=option.first(),
-                phone_number=phone_number,
+            user=request.user,
+            directions=directions.first(),
+            package=package.first(),
+            temp=temp.first(),
+            name=name,
+            email=email,
+            type_education=education.first(),
+            phone_number=phone_number,
+            value=value
             )
         order.save()
+        order.target.set(targets_f)
+        order.option.set(option)
         return redirect('account:profile')
 
     directions = Directions.objects.all()
     options = Option.objects.all()
     temps = Temp.objects.all()
+    targets = Target.objects.all()
+    typeEducation = TypeEducation.objects.all()
     package = Package.objects.all()
 
     template = 'courses/course_order.html'
-    context = {'directions':directions, 'options': options, 'temps': temps, 'packages': package}
+    context = {'directions':directions, 'typeEducation':typeEducation, 'options': options, 'temps': temps, 'packages': package, 'targets': targets}
     return render(request, template, context)

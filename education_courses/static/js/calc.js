@@ -189,38 +189,42 @@ packageInputs.forEach(function(input) {
 
 
 function updateTotalValue(selectedTempPriceIdInput, selectedPackagePriceIdInput, selectedCheckboxes) {
-    // Проверяем, есть ли хотя бы одно из значений
-    if (selectedPackagePriceIdInput || selectedCheckboxes.length > 0 || selectedTempPriceIdInput) {
+  // Проверяем, есть ли хотя бы одно из значений
+  if (selectedPackagePriceIdInput !== null || selectedCheckboxes.length > 0 || selectedTempPriceIdInput !== null) {
       // Получаем значения из элементов
       const selectedPackagePriceIdInputValue = parseFloat(selectedPackagePriceIdInput.textContent);
       const selectedTempPriceIdInputValue = (selectedTempPriceIdInput.textContent === 'Бесплатно') ? 0 : parseFloat(selectedTempPriceIdInput.textContent);
-  
+
       // Проверяем, является ли selectedTempPriceIdInputValue равным 'Бесплатно'
       if (isNaN(selectedTempPriceIdInputValue)) {
-        console.log('Ошибка: Неверное значение для selectedTempPriceIdInput');
-        return;
+          console.log('Ошибка: Неверное значение для selectedTempPriceIdInput');
+          return;
       }
-  
+
       // Вычисляем сумму
       let totalValue = selectedPackagePriceIdInputValue + selectedTempPriceIdInputValue;
-  
+
       // Обрабатываем каждый выбранный чекбокс
-      selectedCheckboxes.forEach(function (checkbox) {
-        const optionRow = checkbox.parentNode.querySelector('.option__selected');
-        const optionPrice = optionRow.querySelector('.option__cost');
-        const optionPriceValue = parseFloat(optionPrice.textContent);
-        if (!isNaN(optionPriceValue)) {
-          totalValue += optionPriceValue;
-        }
+      selectedCheckboxes.forEach(function(checkbox) {
+          const optionRow = checkbox.parentNode.querySelector('.option__selected');
+          const optionPrice = optionRow.querySelector('.option__cost');
+          const optionPriceValue = parseFloat(optionPrice.textContent);
+          if (!isNaN(optionPriceValue)) {
+              totalValue += optionPriceValue;
+          }
       });
-  
+
       console.log(totalValue);
-  
+
       // Вставляем сумму в элемент #valueAll
       valueAll.textContent = totalValue.toFixed(2); // Округляем до двух знаков после запятой
-    }
+      
+      // Обновляем значение <input> на основе значения <span>
+      const valueAllInput = document.getElementById('valueAllInput');
+      valueAllInput.value = totalValue.toFixed(2);
   }
-  
+}
+
   
   
   

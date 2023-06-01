@@ -2,6 +2,10 @@ from django.shortcuts import render, redirect
 from courses.models import Order, Course
 from account.models import Account
 from pytz import all_timezones
+from django.contrib.auth import logout
+from datetime import datetime
+from django.views.generic import View
+from django.contrib import messages
 
 
 def profile(request):
@@ -32,6 +36,12 @@ def update_profile(request):
         bio = request.POST.get('bio')
         interests = request.POST.get('interests')
 
+        try:
+            datetime.strptime(birthdata, '%Y-%m-%d')
+        except ValueError:
+            messages.error(request, 'Некорректный формат даты рождения. Используйте формат YYYY-MM-DD')
+            return redirect('account:profile')
+
         user = request.user
         user.email = email
         user.patronymic = patron
@@ -55,3 +65,8 @@ def update_profile(request):
         'gender_choices': Account.GENDER
     }
     return render(request, template, context)
+
+class LogoutView(View):
+    def get(self, request):
+        logout(request)
+        return redirect('account:login')

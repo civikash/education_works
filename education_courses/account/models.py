@@ -37,7 +37,7 @@ class Account(AbstractUser):
     time = models.CharField(_("Часовой пояс"), max_length=50, choices=time_zone_choices, null=True, blank=True)
     myself = models.TextField(_("О себе")) 
     hobby = models.TextField(_("Интересы"))
-    number = models.IntegerField(_("Телефон"), null=True, blank=True)
+    number = models.CharField(_("Телефон"), max_length=11, null=True, blank=True)
     country = models.CharField(_("Страна"), max_length=50, null=True, blank=True)
     city = models.CharField(_("Город"), max_length=90, null=True, blank=True)
     gender = models.CharField(_("Пол"), choices=GENDER, max_length=50, null=True, blank=True)

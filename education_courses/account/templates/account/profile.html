@@ -55,7 +55,9 @@
                     </defs>
                     </svg>   
                 <a class="button dark" href="{% url 'account:profile_update' %}">Редактировать профиль</a>   
-                <a class="button dark" href="{% url 'courses:courses-order' %}">Подробнее</a>                
+                <a class="button dark" href="{% url 'courses:courses-order' %}">Подробнее</a>         
+
+                <a class="button red" href="{% url 'account:logout' %}">Выйти</a>        
             </div>
             <div class="profile__right">
                 <h1>{{ user.first_name }} {{ user.last_name }}</h1>

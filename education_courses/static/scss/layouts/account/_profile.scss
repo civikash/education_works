@@ -4,6 +4,7 @@
         align-items: center;
         justify-content: center;
         margin-top: 15px;
+        gap: 35px;
     }
 
     .profile__left {
@@ -18,10 +19,16 @@
         .button {
             width: fit-content;
             height: 40px;
+            width: 100%;
             font-size: 13px;
             &.dark {
                 color: $white;
                 background-color: $dark;
+            }
+
+            &.red {
+                color: $white;
+                background-color: red;
             }
         }
     }
