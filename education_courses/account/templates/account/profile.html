@@ -62,13 +62,24 @@
             <div class="profile__right">
                 <h1>{{ user.first_name }} {{ user.last_name }}</h1>
                 <span>Подключенные сервисы:</span>
-                <span><img src="{% static 'img/edit.png'%}" alt="">
+                <a href="{% url 'account:profile_update' %}"><img src="{% static 'img/edit.png'%}" alt="">
                     Добавьте информацию о себе
-                    </span>
-                    <span><img src="{% static 'img/edit.png'%}" alt="">
+                </a>
+                    <div class="info">
+                        <h1>О вас: </h1>
+                        <div class="information__block">
+                            {{ user.myself }}
+                        </div>
+                    </div>
+                    <a href="{% url 'account:profile_update' %}"><img src="{% static 'img/edit.png'%}" alt="">
                         Добавить свои интересы
-                        </span>
-                <h2>Контакты</h2>
+                    </a>
+                        <div class="info">
+                            <h1>Свои интересы: </h1>
+                            <div class="information__block">
+                                {{ user.hobby }}
+                            </div>
+                        </div>
                 <div class="line-width"></div>
                 <h2>Email: {{ user.email }}</h2>
                 <div class="courses__block">

@@ -73,7 +73,7 @@
                         </div>
                         <div class="input__element">
                             <label>Дата рождения</label>
-                            <input id="birthdateInput" name="birthdate" type="text" value="{{ user.birthday|date:'d.m.Y' }}">
+                            <input id="birthdateInput" name="birthdate" type="text" value="{{ user.birthday|date:'Y-m-d' }}">
                         </div>
                         <div class="input__element">
                             <label>Часовой пояс</label>
@@ -87,7 +87,7 @@
                     <div class="data__info-right">
                         <div class="input__element">
                             <label>Телефон</label>
-                            <input name="phone_number" type="text" value="{{ user.number }}">
+                            <input name="phone_number" type="text" value="{{ user.number|default:'' }}">
                         </div>
                         <div class="input__element">
                             <label>Email</label>
@@ -106,15 +106,11 @@
                 <div class="more__info">
                 <div class="input__element">
                     <label>О себе</label>
-                    <textarea name="bio">
-                        {{ user.myself }}
-                    </textarea>
+                    <textarea name="myself">{{ user.myself }}</textarea>
                 </div>
                 <div class="input__element">
                     <label>Интересы</label>
-                    <textarea name="interests">
-                        {{ user.hobby }}
-                    </textarea>
+                    <textarea name="hobby">{{ user.hobby }}</textarea>
                 </div>
             </div>
                 <div class="button__panel">

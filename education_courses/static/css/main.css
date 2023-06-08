@@ -784,6 +784,21 @@ p {
   padding: 11px;
   border: 1px solid #959595;
 }
+.profile__body .profile__right .info {
+  display: flex;
+  flex-direction: column;
+  padding: 7px;
+  justify-content: center;
+  gap: 25px;
+}
+.profile__body .profile__right .info h1 {
+  margin-bottom: 0px !important;
+}
+.profile__body .profile__right .info .information__block {
+  border: 1px solid #1D212F;
+  padding: 9px;
+  border-radius: 11px;
+}
 
 .update__profile__body {
   margin-top: 55px;

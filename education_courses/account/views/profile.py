@@ -6,6 +6,7 @@ from django.contrib.auth import logout
 from datetime import datetime
 from django.views.generic import View
 from django.contrib import messages
+from django.http import HttpResponseRedirect
 
 
 def profile(request):
@@ -33,26 +34,23 @@ def update_profile(request):
         email = request.POST.get('email')
         country = request.POST.get('country')
         city = request.POST.get('city')
-        bio = request.POST.get('bio')
-        interests = request.POST.get('interests')
+        myself = request.POST.get('myself')
+        hobby = request.POST.get('hobby')
 
         try:
             datetime.strptime(birthdata, '%Y-%m-%d')
         except ValueError:
             messages.error(request, 'Некорректный формат даты рождения. Используйте формат YYYY-MM-DD')
-            return redirect('account:profile')
+            return HttpResponseRedirect(request.path_info)
         
-        if len(phone_number) != 11:
-            messages.error(request, 'Некорректная длина номера телефона. Должно быть 11 символов')
-            return redirect('account:profile')
 
         user = request.user
         user.email = email
         user.patronymic = patron
         user.birthday = birthdata or None
         user.time = timezone
-        user.myself = bio or None
-        user.hobby = interests or None
+        user.myself = myself or None
+        user.hobby = hobby or None
         user.number = phone_number or None
         user.country = country
         user.city = city

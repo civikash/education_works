@@ -71,6 +71,23 @@
                 border: 1px solid $gray;
             }
         }
+
+        .info {
+            display: flex;
+            flex-direction: column;
+            padding: 7px;
+            justify-content: center;
+            gap: 25px;
+            h1 {
+                margin-bottom: 0px !important;
+            }
+
+            .information__block {
+                border: 1px solid $dark;
+                padding: 9px;
+                border-radius: 11px;
+            }
+        }
     }
 }
 
