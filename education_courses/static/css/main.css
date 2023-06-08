@@ -865,6 +865,17 @@ p {
   margin-bottom: 25px;
 }
 
+.message {
+  display: flex;
+  border: 1px solid #1D212F;
+  padding: 15px;
+}
+.message.error {
+  border-color: #FD7401;
+  background-color: #FD7401;
+  color: #FFFFFF;
+}
+
 .header__courses {
   display: flex;
   flex-direction: column;
