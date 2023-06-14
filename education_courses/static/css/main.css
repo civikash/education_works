@@ -131,6 +131,10 @@ p {
   background-color: #1D212F;
   color: #FFFFFF;
 }
+.button.red {
+  background-color: rgba(255, 62, 76, 0.08);
+  color: #FF3E4C;
+}
 
 .header__landing {
   display: flex;
@@ -783,6 +787,16 @@ p {
   border-radius: 8px;
   padding: 11px;
   border: 1px solid #959595;
+}
+.profile__body .profile__right .courses__block .order__item-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.profile__body .profile__right .courses__block .order__item-row .button {
+  height: 32px;
+  width: 110px;
+  font-size: 15px;
 }
 .profile__body .profile__right .info {
   display: flex;

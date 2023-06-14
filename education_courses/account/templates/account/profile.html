@@ -86,9 +86,14 @@
                     <h1>Ваши курсы</h1>
                     {% for course in courses %}
                     <div class="order__item">
+                        <div class="order__item-row">
                         <h1>{{ course.directions }}</h1>
+                        <a class="button red" href="{% url 'courses:courses-delete' course.uid %}">Удалить</a>
+                        </div>
                         <span>Пакет: {{ course.package }}</span>
-                        <span>Дополнительные опции: {{ course.option }}</span>
+                        {% for option in course.option.all %}
+                        <span>Дополнительные опции: {{ option.name }}</span>
+                        {% endfor %}
                         <span>Темп обучения: {{ course.temp }}</span>
                         <span>Номер телефона: {{ course.phone_number }}</span>
                     </div>

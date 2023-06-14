@@ -45,4 +45,9 @@ p {
       background-color: $dark;
       color: $white;
     }
+
+    &.red {
+      background-color: $red-bg;
+      color: $red-color;
+    }
 }

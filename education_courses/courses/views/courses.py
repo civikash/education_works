@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from courses.models import Course, Order, Directions, TypeEducation, Temp, Option, Package, Target
 import uuid
 from django.shortcuts import get_object_or_404
+from django.http import HttpResponseRedirect
+from django.http import JsonResponse
 
 
 def courses_search(request, course_name=None, select_course=None ):
@@ -136,3 +138,15 @@ def course_order(request):
     template = 'courses/course_order.html'
     context = {'directions':directions, 'typeEducation':typeEducation, 'options': options, 'temps': temps, 'packages': package, 'targets': targets}
     return render(request, template, context)
+
+
+def course_delete(request, uid):
+    print(uid)
+    try:
+        course = Order.objects.get(uid=uid)
+        course.delete()
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+    except Order.DoesNotExist:
+        return JsonResponse({'success': False, 'message': 'Course not found'})
+    except Exception as e:
+        return JsonResponse({'success': False, 'message': str(e)})
