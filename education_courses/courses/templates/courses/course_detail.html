@@ -102,7 +102,7 @@
         </div>
     </div>
     <div class="cost">
-        <h1>{{ course.cost }} ₽/мес</h1>
+        <h1 id="costId">{{ course.cost }} ₽/мес</h1>
         <span>Рассрочка до 36 месяцев</span>
         <button id="openModal" class="button orange">Оставить заявку</button>
     </div>
@@ -114,6 +114,7 @@
             <div class="order__block">
                 <h1>Оставьте заявку</h1>
                 <div class="order__form">
+                    <input type="hidden" id="valueMain" name='value_main' value="">
                     <input type="text" name="name" placeholder="Имя Фамилия" required>
                     <input type="text" name="email" placeholder="Email" required>
                     <input required type="text" name="phone_number" maxlength="10" pattern="[0-9]{10,13}" placeholder="985352-00-14">

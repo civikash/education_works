@@ -74,6 +74,7 @@ def course_detail(request, uid):
         name = request.POST.get('name')
         email = request.POST.get('email')
         phone_number = request.POST.get('phone_number')
+        value_main = request.POST.get('value_main')
 
         order = Order(
                 user = request.user,
@@ -81,6 +82,7 @@ def course_detail(request, uid):
                 name=name,
                 email=email,
                 phone_number=phone_number,
+                value=value_main
             )
         order.save()
         return redirect('account:profile')
