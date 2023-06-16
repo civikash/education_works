@@ -190,6 +190,8 @@ packageInputs.forEach(function(input) {
 
 function updateTotalValue(selectedTempPriceIdInput, selectedPackagePriceIdInput, selectedCheckboxes) {
   // Проверяем, есть ли хотя бы одно из значений
+  var spanValue = document.getElementById("valueAllTotal").innerHTML;
+  var inputElement = document.getElementById("valueGet");
   if (selectedPackagePriceIdInput !== null || selectedCheckboxes.length > 0 || selectedTempPriceIdInput !== null) {
       // Получаем значения из элементов
       const selectedPackagePriceIdInputValue = parseFloat(selectedPackagePriceIdInput.textContent);
@@ -222,9 +224,6 @@ function updateTotalValue(selectedTempPriceIdInput, selectedPackagePriceIdInput,
       // Обновляем значение <input> на основе значения <span>
       const valueAllInput = document.getElementById('valueAllInput');
       valueAllInput.value = totalValue.toFixed(2);
+      inputElement.value = spanValue;
   }
 }
-
-  
-  
-  
